@@ -1,0 +1,57 @@
+lm.php v0.6
+
+These little scripts merge a Geeklog (foreign) language file with the
+english.php language file, so that new strings added to english.php are
+automatically added to the other language file as well.
+
+Usage:
+
+    lm.php langfile.php > new-langfile.php
+
+mblm.php does the same but for UTF-8 language files. It requires a PHP version
+with multi-byte string support built in (--enable-mbstring option). Otherwise,
+it works exactly like lm.php.
+
+These scripts, while written in PHP, are supposed to be run from the command
+line and thus require the CLI version of PHP to be installed on your
+computer. They also display the merged language file on the screen, so you
+should redirect the output to a new file. They also expects to find the
+english.php language file in the current directory.
+
+What they can do:
+
+- add new individual strings and string arrays to the language file
+- do some pretty printing
+
+What they can not do:
+
+- remove obsoleted strings
+- detect changed strings
+
+Since we don't usually remove obsoleted strings from Geeklog (in the hope
+that they can be reused at a later date), the first issue shouldn't be a
+problem.
+
+For changes in existing strings, it is recommended that you subscribe to
+the geeklog-translations mailing list, where such information will be posted
+when a new version of Geeklog is about to be released.
+
+You can subscribe to the Geeklog mailing lists at
+
+    http://lists.geeklog.net/mailman/listinfo/
+
+lm.php was originally written for Geeklog 1.3.9. It should work just fine
+with language files from older versions, though.
+
+Copyright (C) 2004-2006 by Dirk Haun, <dirk AT haun-online DOT de>,
+and released under the GNU General Public License v2.
+
+
+History
+
+0.1  first public release
+0.2  make sure lines containing \n are enclosed in double quotes
+0.3  added support for $LANG_PDF (Geeklog 1.3.10), introduced multibyte version
+0.5  updated for Geeklog 1.4.0
+0.6  updated for Geeklog 1.4.1
+
