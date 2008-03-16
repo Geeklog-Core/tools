@@ -4,8 +4,6 @@
 #
 # Usage: mkdist.sh new-version old-version [german]
 # e.g. ./mkdist.sh 1.3.9rc1 1.3.8-1sr4
-#
-# $Id: mkdist.sh,v 1.1.1.1 2007/06/05 10:49:45 dhaun Exp $
 
 if [ -z "$1" ]; then
   echo "Usage: $0 new-version old-version [german]"
@@ -33,7 +31,7 @@ if [ -d $NEWVERSION ]; then
 fi
 
 cp -r -p ../Geeklog-1.x $NEWVERSION
-cp -r ../pear-1.3/pear/* $NEWVERSION/system/pear/
+cp -r -p ../pear-1.3/pear/* $NEWVERSION/system/pear/
 
 cd $NEWVERSION
 
@@ -56,10 +54,23 @@ rm -f plugins/spamx/MTBlackList.Examine.class.php
 rm -f plugins/spamx/Import.Admin.class.php
 # only used by the Import class
 rm -rf plugins/spamx/magpierss
+# you'd need to set up a honeypot to use it
+rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
 
 # don't ship these language files any more
 rm -f language/chinese_big5.php
 rm -f language/chinese_gb2312.php
+
+# PEAR buildpackage files
+rm -f plugins/calendar/buildpackage.php
+rm -f plugins/links/buildpackage.php
+rm -f plugins/polls/buildpackage.php
+rm -f plugins/spamx/buildpackage.php
+rm -f plugins/staticpages/buildpackage.php
+rm -rf system/build
+
+# no more config.php, yay!
+rm -f config.php config.php.dist
 
 find . -type f -name '.*' -exec rm \{\} \;
 find . -name CVS -exec rm -r \{\} \; 2>/dev/null
