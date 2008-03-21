@@ -3,14 +3,14 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.4                                                               |
+// | Geeklog 1.5                                                               |
 // +---------------------------------------------------------------------------+
 // | mblm.php                                                                  |
 // |                                                                           |
 // | Update a language file by merging it with english.php. Multibyte-safe     |
 // | version of lm.php - requires PHP built with --enable-mbstring option.     |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2006 by the following authors:                         |
+// | Copyright (C) 2004-2008 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -31,9 +31,9 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: mblm.php,v 1.1.1.1 2007/06/05 10:48:01 dhaun Exp $
+// $Id: mblm.php,v 1.2 2008/03/21 20:26:05 dhaun Exp $
 
-$VERSION = '0.6';
+$VERSION = '0.7';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -85,6 +85,7 @@ $ENG01 = $LANG01;
 // $LANG02 moved to the Calendar plugin as of Geeklog 1.4.1
 $ENG03 = $LANG03;
 $ENG04 = $LANG04;
+$ENGMY = $LANG_MYACCOUNT;
 $ENG05 = $LANG05;
 // $LANG06 moved to the Links plugin as of Geeklog 1.4.0
 // $LANG07 moved to the Polls plugin as of Geeklog 1.4.0
@@ -133,11 +134,19 @@ $ENG_postmodes = $LANG_postmodes;
 $ENG_sortcodes = $LANG_sortcodes;
 $ENG_trackbackcodes = $LANG_trackbackcodes;
 
-unset ($LANG_MONTH);
-unset ($LANG_WEEK);
+$ENG_CONFIG = $LANG_CONFIG;
+$ENG_configsections['Core'] = $LANG_configsections['Core'];
+$ENG_confignames['Core'] = $LANG_confignames['Core'];
+$ENG_configsubgroups['Core'] = $LANG_configsubgroups['Core'];
+$ENG_configsubgroups['Core'] = $LANG_configsubgroups['Core'];
+$ENG_fs['Core'] = $LANG_fs['Core'];
+$ENG_configselects['Core'] = $LANG_configselects['Core'];
+
+unset($LANG_MONTH);
+unset($LANG_WEEK);
 
 // now load the language file we want to update
-require_once ($langfile);
+require_once $langfile;
 
 // try to rescue translated day and months names
 
@@ -199,9 +208,35 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
             $newtxt = $OTHER[$key];
         }
 
-        $newtxt = mb_ereg_replace ("\n", '\n', $newtxt);
+        if (!is_array($newtxt)) {
+            $newtxt = mb_ereg_replace("\n", '\n', $newtxt);
+        }
 
-        if (mb_strpos ($newtxt, '{$') === false) {
+        if (is_array($newtxt)) { // mainly for the config selects
+            $quotedtext = 'array(';
+            foreach ($newtxt as $nkey => $ntxt) {
+                $quotedtext .= "'" . str_replace("'", "\'", $nkey) . "' => ";
+                if ($ntxt === true) {
+                    $quotedtext .= 'true';
+                } else if ($ntxt === false) {
+                    $quotedtext .= 'false';
+                } else if (is_numeric($ntxt)) {
+                    $quotedtext .= $ntxt;
+                } else {
+                    $quotedtext .= "'" . str_replace("'", "\'", $ntxt) . "'";
+                }
+                $quotedtext .= ', ';
+            }
+            $quotedtext = substr($quotedtext, 0, -2);
+            $quotedtext .= ')';
+
+            // hack for this special case ...
+            if ($quotedtext == "array('True' => 1, 'False' => '')") {
+                $quotedtext = "array('True' => TRUE, 'False' => FALSE)";
+            }
+
+            $quotedtext = mb_ereg_replace("\n", '\n', $quotedtext);
+        } else if (mb_strpos ($newtxt, '{$') === false) {
             if (mb_strpos ($newtxt, '\n') === false) {
                 // text contains neither variables nor line feeds,
                 // so enclose it in single quotes
@@ -305,6 +340,7 @@ echo "\n";
 mergeArrays($ENG01, $LANG01, 'LANG01', 'lib-common.php');
 mergeArrays($ENG03, $LANG03, 'LANG03', 'comment.php');
 mergeArrays($ENG04, $LANG04, 'LANG04', 'users.php');
+mergeArrays($ENGMY,  $LANG_MYACCOUNT, 'LANG_MYACCOUNT', "Customize if need to modify the Tabbed navbar MyAccount panels used.\nArray index key matches preference div id");
 mergeArrays($ENG05, $LANG05, 'LANG05', 'index.php');
 mergeArrays($ENG08, $LANG08, 'LANG08', 'profiles.php');
 mergeArrays($ENG09, $LANG09, 'LANG09', 'search.php');
@@ -350,6 +386,15 @@ mergeArrays($ENG_frontpagecodes, $LANG_frontpagecodes, 'LANG_frontpagecodes', fa
 mergeArrays($ENG_postmodes, $LANG_postmodes, 'LANG_postmodes', false);
 mergeArrays($ENG_sortcodes, $LANG_sortcodes, 'LANG_sortcodes', false);
 mergeArrays($ENG_trackbackcodes, $LANG_trackbackcodes, 'LANG_trackbackcodes', false);
+
+echo "\n";
+
+mergeArrays($ENG_CONFIG, $LANG_CONFIG, 'LANG_CONFIG', 'Localization of the Admin Configuration UI');
+mergeArrays($ENG_configsections['Core'], $LANG_configsections['Core'], "LANG_configsections['Core']", false);
+mergeArrays($ENG_confignames['Core'], $LANG_confignames['Core'], "LANG_confignames['Core']", false);
+mergeArrays($ENG_configsubgroups['Core'], $LANG_configsubgroups['Core'], "LANG_configsubgroups['Core']", false);
+mergeArrays($ENG_fs['Core'], $LANG_fs['Core'], "LANG_fs['Core']", false);
+mergeArrays($ENG_configselects['Core'], $LANG_configselects['Core'], "LANG_configselects['Core']", false);
 
 echo "\n?>";
 
