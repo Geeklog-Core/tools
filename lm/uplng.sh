@@ -1,13 +1,13 @@
 #!/bin/bash
 # +---------------------------------------------------------------------------+
-# | Geeklog 1.4                                                               |
+# | Geeklog 1.5                                                               |
 # +---------------------------------------------------------------------------+
 # | uplng.sh                                                                  |
 # |                                                                           |
 # | Helper script to update the Geeklog language files, using the lm.php and  |
 # | mblm.php scripts.                                                         |
 # +---------------------------------------------------------------------------+
-# | Copyright (C) 2004-2006 by the following authors:                         |
+# | Copyright (C) 2004-2008 by the following authors:                         |
 # |                                                                           |
 # | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 # +---------------------------------------------------------------------------+
@@ -28,7 +28,7 @@
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-# $Id: uplng.sh,v 1.1.1.1 2007/06/05 10:48:01 dhaun Exp $
+# $Id: uplng.sh,v 1.2 2008/03/21 20:26:05 dhaun Exp $
 
 # Installation and usage:
 # - copy this script into the "language" directory of a local Geeklog install
@@ -46,8 +46,8 @@ langpath=$basedir/cvs.geeklog.net/Geeklog-1.x/language
 destpath=$basedir/work/language
 
 # paths to the lm.php and mblm.php scripts
-lm=$basedir/local-cvs/tools/lm/lm.php
-mblm=$basedir/local-cvs/tools/lm/mblm.php
+lm=$basedir/cvs.geeklog.net/tools/lm/lm.php
+mblm=$basedir/cvs.geeklog.net/tools/lm/mblm.php
 
 
 # you shouldn't need to change anything below ...
@@ -62,7 +62,7 @@ cp english.php $destpath
 
 cd $destpath
 for l in $files; do
-  utf=`grep -i utf-8 $langpath/$l`
+  utf=`grep -i 'LANG_CHARSET.*utf-8' $langpath/$l`
   if [ -z "$utf" ]; then
     echo "$l"
     php $lm $langpath/$l > $l
