@@ -1,4 +1,4 @@
-lm.php v0.8
+lm.php v0.9
 
 This little script merges a Geeklog (foreign) language file with the
 english.php language file, so that new strings added to english.php are
@@ -6,7 +6,10 @@ automatically added to the other language file as well.
 
 Usage:
 
-    php lm.php langfile.php > new-langfile.php
+    php lm.php langfile.php [module] > new-langfile.php
+
+Where "module" is the name of the plugin to update (or empty for a Core
+language file).
 
 If the filename of the language file contains 'utf-8', lm.php assumes it to
 be in UTF-8 encoding. It then requires a PHP version with multi-byte string
@@ -23,6 +26,7 @@ What it can do:
 - add new individual strings and string arrays to the language file
 - do some pretty printing
 - remove obsoleted strings
+- update plugin language files
 
 What it can not do:
 

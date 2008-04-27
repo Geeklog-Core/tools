@@ -28,40 +28,61 @@
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-# $Id: uplng.sh,v 1.3 2008/04/27 09:48:06 dhaun Exp $
+# $Id: uplng.sh,v 1.4 2008/04/27 17:11:13 dhaun Exp $
 
 # Installation and usage:
-# - copy this script into the "language" directory of a local Geeklog install
-#   Note that all *.php files in that directory will be removed!
+# - copy this script into the /path/to/geeklog of a local Geeklog install
+#   Note that all *.php files in all of the language directories will be
+#   deleted and new language files will be created there
 # - adjust paths below
-# - cd into the language directory, run the script
+# - cd /path/to/geeklog, run the script
 
 # just a basedir to save some typing ...
 basedir=/Users/dirk/darwin
 
-# location of the language directory in your local copy of the CVS repository
-langpath=$basedir/cvs.geeklog.net/Geeklog-1.x/language
+# the /path/to/geeklog of your local copy of the CVS repository
+cvspath=$basedir/cvs.geeklog.net/Geeklog-1.x
 
-# target language directory - where this script is located
-destpath=$basedir/work/language
+# target directory - where this script is located aka /path/to/geeklog
+destpath=$basedir/work
 
-# paths to the lm.php and mblm.php scripts
+# path to the lm.php script and the include directory
 lm=$basedir/cvs.geeklog.net/tools/lm/lm.php
 
 
 # you shouldn't need to change anything below ...
 
-cd $destpath
-rm -f *.php
+function doConvert() { # parameters: "to" "from" "module"
 
-cd $langpath
-files=`ls -1 *.php | grep -v english.php`
+  if [ -z "$3" ]; then
+    echo "=== Core ==="
 
-cp english.php $destpath
+    modpath=$1/language
+    langpath=$2/language
+  else
+    echo "=== $3 ==="
 
-cd $destpath
-for l in $files; do
-  echo "$l"
-  php $lm $langpath/$l > $l
-done
+    modpath=$1/plugins/$3/language
+    langpath=$2/plugins/$3/language
+  fi
+
+  cd $modpath
+  rm -f *.php
+
+  cd $langpath
+  files=`ls -1 *.php | grep -v english.php | grep -v english_utf-8.php`
+
+  cp english.php $modpath
+  cp english_utf-8.php $modpath
+
+  cd $destpath
+  for l in $files; do
+    echo "$l"
+    php $lm $langpath/$l "$3" > $modpath/$l
+  done
+
+}
+
+doConvert $destpath $cvspath
+doConvert $destpath $cvspath "calendar"
 
