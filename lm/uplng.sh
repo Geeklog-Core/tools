@@ -4,8 +4,8 @@
 # +---------------------------------------------------------------------------+
 # | uplng.sh                                                                  |
 # |                                                                           |
-# | Helper script to update the Geeklog language files, using the lm.php and  |
-# | mblm.php scripts.                                                         |
+# | Helper script to update the Geeklog language files,                       |
+# | using the lm.php script.                                                  |
 # +---------------------------------------------------------------------------+
 # | Copyright (C) 2004-2008 by the following authors:                         |
 # |                                                                           |
@@ -28,7 +28,7 @@
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-# $Id: uplng.sh,v 1.5 2008/04/27 18:44:21 dhaun Exp $
+# $Id: uplng.sh,v 1.6 2008/04/27 19:04:50 dhaun Exp $
 
 # Installation and usage:
 # - copy this script into the /path/to/geeklog of a local Geeklog install
@@ -86,4 +86,5 @@ function doConvert() { # parameters: "to" "from" "module"
 doConvert $destpath $cvspath
 doConvert $destpath $cvspath "calendar"
 doConvert $destpath $cvspath "polls"
+doConvert $destpath $cvspath "staticpages"
 
