@@ -30,9 +30,9 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: lm.php,v 1.2 2008/03/21 20:26:05 dhaun Exp $
+// $Id: lm.php,v 1.3 2008/04/27 09:48:06 dhaun Exp $
 
-$VERSION = '0.7';
+$VERSION = '0.8';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -44,6 +44,22 @@ if (empty ($langfile)) {
     echo "This is free software; see the source for copying conditions.\n\n";
     echo "Usage: {$GLOBALS['argv'][0]} langfile.php > new-langfile.php\n\n";
     exit;
+}
+
+$mb = false;
+if (strpos($filename, '_utf-8') !== false) {
+    $mb = true;
+
+    if (!function_exists('mb_strpos')) {
+        echo "Sorry, this script needs a PHP version that has multibyte support compiled in.\n\n";
+        exit;
+    } else if (!function_exists('mb_ereg_replace')) {
+        echo "Sorry, this script needs a PHP version with the mb_ereg_replace function compiled in.\n\n";
+        exit;
+    }
+
+    mb_regex_encoding('UTF-8');
+    mb_internal_encoding('UTF-8');
 }
 
 
@@ -67,7 +83,7 @@ $topic                      = '{$topic}';
 $type                       = '{$type}';
 
 // load the English language file
-require_once ('english.php');
+require_once 'english.php';
 
 // save the english text strings
 $ENG01 = $LANG01;
@@ -159,6 +175,54 @@ function separator()
 }
 
 /**
+* My mb-save replacement for some(!) string replacements
+*
+*/
+function my_str_replace($s1, $s2, $s3)
+{
+    global $mb;
+
+    if ($mb) {
+        return mb_ereg_replace($s1, $s2, $s3);
+    } else {
+        return str_replace($s1, $s2, $s3);
+    }
+}
+
+/**
+* My mb-save replacement for some(!) use cases of strpos
+*
+*/
+function my_strpos($s1, $s2)
+{
+    global $mb;
+
+    if ($mb) {
+        return mb_strpos($s1, $s2);
+    } else {
+        return strpos($s1, $s2);
+    }
+}
+
+/**
+* Replace <br> with '<br . XHTML . >' construct for XHTML compliance
+*
+*/
+function patch_br($txt)
+{
+    global $mb;
+
+    if ($mb) {
+        $fc = mb_substr($txt, 0, 1);
+    } else {
+        $fc = substr($txt, 0, 1);
+    }
+
+    return my_str_replace('<br>',
+                          '<br' . $fc . ' . XHTML . ' . $fc . '>', $txt);
+}
+
+/**
 * Merge two language arrays
 *
 * This function does all the work. Any missing text strings are copied
@@ -167,6 +231,8 @@ function separator()
 */
 function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
 {
+    global $mb;
+
     $numElements = sizeof($ENG);
     $counter = 0;
 
@@ -183,26 +249,33 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
 
     foreach ($ENG as $key => $txt) {
         $counter++;
-        if (is_numeric ($key)) {
+        if (is_numeric($key)) {
             echo "    $key => ";
         } else {
             echo "    '$key' => ";
         }
         $newtxt = '';
-        if (empty ($OTHER[$key])) {
+        if (empty($OTHER[$key])) {
             // string does not exist in other language - use English text
             $newtxt = $txt;
         } else {
-            // string exists in other language - keep it
-            $newtxt = $OTHER[$key];
+            if (isset($ENG[$key]) && empty($ENG[$key])) {
+                // string is now empty in English language file - remove it
+                $newtxt = '';
+            } else {
+                // string exists in other language - keep it
+                $newtxt = $OTHER[$key];
+            }
         }
 
-        $newtxt = str_replace ("\n", '\n', $newtxt);
+        if (!is_array($newtxt)) {
+            $newtxt = my_str_replace("\n", '\n', $newtxt);
+        }
 
         if (is_array($newtxt)) { // mainly for the config selects
             $quotedtext = 'array(';
             foreach ($newtxt as $nkey => $ntxt) {
-                $quotedtext .= "'" . str_replace("'", "\'", $nkey) . "' => ";
+                $quotedtext .= "'" . my_str_replace("'", "\'", $nkey) . "' => ";
                 if ($ntxt === true) {
                     $quotedtext .= 'true';
                 } else if ($ntxt === false) {
@@ -210,36 +283,51 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
                 } else if (is_numeric($ntxt)) {
                     $quotedtext .= $ntxt;
                 } else {
-                    $quotedtext .= "'" . str_replace("'", "\'", $ntxt) . "'";
+                    $quotedtext .= "'" . my_str_replace("'", "\'", $ntxt) . "'";
                 }
                 $quotedtext .= ', ';
             }
-            $quotedtext = substr($quotedtext, 0, -2);
+            if ($mb) {
+                $quotedtext = mb_substr($quotedtext, 0, -2);
+            } else {
+                $quotedtext = substr($quotedtext, 0, -2);
+            }
             $quotedtext .= ')';
 
             // hack for this special case ...
             if ($quotedtext == "array('True' => 1, 'False' => '')") {
                 $quotedtext = "array('True' => TRUE, 'False' => FALSE)";
             }
-        } else if (strpos ($newtxt, '{$') === false) {
-            if (strpos ($newtxt, '\n') === false) {
+
+            // ??? $quotedtext = mb_ereg_replace("\n", '\n', $quotedtext);
+        } else if (my_strpos ($newtxt, '{$') === false) {
+            if (my_strpos ($newtxt, '\n') === false) {
                 // text contains neither variables nor line feeds,
                 // so enclose it in single quotes
-                $newtxt = str_replace ("'", "\'", $newtxt);
+                $newtxt = my_str_replace("'", "\'", $newtxt);
                 $quotedtext = "'" . $newtxt . "'";
             } else {
                 // text contains line feeds - enclose in double quotes so
                 // they can be interpreted
-                $newtxt = str_replace ('"', '\"', $newtxt);
+                $newtxt = my_str_replace('"', '\"', $newtxt);
                 $quotedtext = '"' . $newtxt . '"';
             }
         } else {
             // text contains variables
-            $newtxt = str_replace ('$', '\$', $newtxt);
-            $newtxt = str_replace ('{\$', '{$', $newtxt);
-            $newtxt = str_replace ('"', '\"', $newtxt);
+            if ($mb) {
+                $newtxt = mb_ereg_replace('\$', '\$', $newtxt);
+                // backslash attack!
+                $newtxt = mb_ereg_replace('\{\\\\\$', '{$', $newtxt);
+                $newtxt = mb_ereg_replace('"', '\"', $newtxt);
+            } else {
+                $newtxt = str_replace('$', '\$', $newtxt);
+                $newtxt = str_replace('{\$', '{$', $newtxt);
+                $newtxt = str_replace('"', '\"', $newtxt);
+            }
             $quotedtext = '"' . $newtxt . '"';
         }
+
+        $quotedtext = patch_br($quotedtext);
 
         if ($counter != $numElements) {
             $quotedtext .= ',';
@@ -361,7 +449,9 @@ mergeArrays($ENGMO,  $LANG_MONTH, 'LANG_MONTH', 'Month names');
 mergeArrays($ENGWK,  $LANG_WEEK, 'LANG_WEEK', 'Weekdays');
 mergeArrays($ENGAD,  $LANG_ADMIN, 'LANG_ADMIN', "Admin - Strings\n\nThese are some standard strings used by core functions as well as plugins to\ndisplay administration lists and edit pages");
 
-mergeArrays($ENG_commentcodes, $LANG_commentcodes, 'LANG_commentcodes', "Localisation of the texts for the various drop-down menus that are actually\nstored in the database. If these exist, they override the texts from the\ndatabase.");
+echo "# Localisation of the texts for the various drop-down menus that are actually\n# stored in the database. If these exist, they override the texts from the\n# database.\n";
+
+mergeArrays($ENG_commentcodes, $LANG_commentcodes, 'LANG_commentcodes', false);
 mergeArrays($ENG_commentmodes, $LANG_commentmodes, 'LANG_commentmodes', false);
 mergeArrays($ENG_cookiecodes, $LANG_cookiecodes, 'LANG_cookiecodes', false);
 mergeArrays($ENG_dateformats, $LANG_dateformats, 'LANG_dateformats', false);
@@ -372,8 +462,10 @@ mergeArrays($ENG_sortcodes, $LANG_sortcodes, 'LANG_sortcodes', false);
 mergeArrays($ENG_trackbackcodes, $LANG_trackbackcodes, 'LANG_trackbackcodes', false);
 
 echo "\n";
+separator();
+echo "# Localization of the Admin Configuration UI\n";
 
-mergeArrays($ENG_CONFIG, $LANG_CONFIG, 'LANG_CONFIG', 'Localization of the Admin Configuration UI');
+mergeArrays($ENG_CONFIG, $LANG_CONFIG, 'LANG_CONFIG', false);
 mergeArrays($ENG_configsections['Core'], $LANG_configsections['Core'], "LANG_configsections['Core']", false);
 mergeArrays($ENG_confignames['Core'], $LANG_confignames['Core'], "LANG_confignames['Core']", false);
 mergeArrays($ENG_configsubgroups['Core'], $LANG_configsubgroups['Core'], "LANG_configsubgroups['Core']", false);
