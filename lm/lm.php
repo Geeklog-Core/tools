@@ -30,7 +30,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: lm.php,v 1.4 2008/04/27 17:11:13 dhaun Exp $
+// $Id: lm.php,v 1.5 2008/04/27 20:27:56 dhaun Exp $
 
 $VERSION = '0.9';
 
@@ -58,7 +58,7 @@ if (strpos($filename, '_utf-8') !== false) {
     if (!function_exists('mb_strpos')) {
         echo "Sorry, this script needs a PHP version that has multibyte support compiled in.\n\n";
         exit;
-    } else if (!function_exists('mb_ereg_replace')) {
+    } elseif (!function_exists('mb_ereg_replace')) {
         echo "Sorry, this script needs a PHP version with the mb_ereg_replace function compiled in.\n\n";
         exit;
     }
@@ -138,10 +138,10 @@ function my_strpos($s1, $s2)
 }
 
 /**
-* Replace <br> with '<br . XHTML . >' construct for XHTML compliance
+* Make <br> and <hr> tags XHTML compliant
 *
 */
-function patch_br($txt)
+function makeXHTML($txt)
 {
     global $mb;
 
@@ -151,8 +151,12 @@ function patch_br($txt)
         $fc = substr($txt, 0, 1);
     }
 
-    return my_str_replace('<br>',
+    $txt = my_str_replace('<br>',
                           '<br' . $fc . ' . XHTML . ' . $fc . '>', $txt);
+    $txt = my_str_replace('<hr>',
+                          '<hr' . $fc . ' . XHTML . ' . $fc . '>', $txt);
+
+    return $txt;
 }
 
 function prepareText($newtxt)
@@ -245,9 +249,9 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
                 $quotedtext .= "'" . my_str_replace("'", "\'", $nkey) . "' => ";
                 if ($ntxt === true) {
                     $quotedtext .= 'true';
-                } else if ($ntxt === false) {
+                } elseif ($ntxt === false) {
                     $quotedtext .= 'false';
-                } else if (is_numeric($ntxt)) {
+                } elseif (is_numeric($ntxt)) {
                     $quotedtext .= $ntxt;
                 } else {
                     $quotedtext .= "'" . my_str_replace("'", "\'", $ntxt) . "'";
@@ -271,7 +275,7 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
             $quotedtext = prepareText($newtxt);
         }
 
-        $quotedtext = patch_br($quotedtext);
+        $quotedtext = makeXHTML($quotedtext);
 
         if ($counter != $numElements) {
             $quotedtext .= ',';
@@ -297,7 +301,7 @@ function mergeString($eng, $other, $name)
     }
 
     $quotedtext = prepareText($newtxt);
-    $quotedtext = patch_br($quotedtext);
+    $quotedtext = makeXHTML($quotedtext);
 
     echo "\$$name = $quotedtext;\n";
 }
@@ -322,10 +326,17 @@ function readCredits($langfile)
                 if (strstr ($line, '#####') !== false) {
                     // end of credits reached
                     break;
+                } elseif (strstr($line, '*/') !== false) {
+                    // end of credits reached, Spam-X style
+                    break;
                 }
             } else {
                 if (strstr ($line, '#####') !== false) {
                     // start of credits
+                    $firstcomment = true;
+                    $credits[] = $line;
+                } elseif (strstr($line, '/**') !== false) {
+                    // start of credits, Spam-X style
                     $firstcomment = true;
                     $credits[] = $line;
                 }
