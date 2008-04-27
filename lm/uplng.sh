@@ -28,7 +28,7 @@
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-# $Id: uplng.sh,v 1.2 2008/03/21 20:26:05 dhaun Exp $
+# $Id: uplng.sh,v 1.3 2008/04/27 09:48:06 dhaun Exp $
 
 # Installation and usage:
 # - copy this script into the "language" directory of a local Geeklog install
@@ -47,7 +47,6 @@ destpath=$basedir/work/language
 
 # paths to the lm.php and mblm.php scripts
 lm=$basedir/cvs.geeklog.net/tools/lm/lm.php
-mblm=$basedir/cvs.geeklog.net/tools/lm/mblm.php
 
 
 # you shouldn't need to change anything below ...
@@ -62,13 +61,7 @@ cp english.php $destpath
 
 cd $destpath
 for l in $files; do
-  utf=`grep -i 'LANG_CHARSET.*utf-8' $langpath/$l`
-  if [ -z "$utf" ]; then
-    echo "$l"
-    php $lm $langpath/$l > $l
-  else
-    echo "$l (utf-8)"
-    php $mblm $langpath/$l > $l
-  fi
+  echo "$l"
+  php $lm $langpath/$l > $l
 done
 
