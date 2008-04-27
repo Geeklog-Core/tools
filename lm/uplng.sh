@@ -28,7 +28,7 @@
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
-# $Id: uplng.sh,v 1.4 2008/04/27 17:11:13 dhaun Exp $
+# $Id: uplng.sh,v 1.5 2008/04/27 18:44:21 dhaun Exp $
 
 # Installation and usage:
 # - copy this script into the /path/to/geeklog of a local Geeklog install
@@ -85,4 +85,5 @@ function doConvert() { # parameters: "to" "from" "module"
 
 doConvert $destpath $cvspath
 doConvert $destpath $cvspath "calendar"
+doConvert $destpath $cvspath "polls"
 
