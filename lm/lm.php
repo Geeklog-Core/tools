@@ -30,9 +30,9 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: lm.php,v 1.5 2008/04/27 20:27:56 dhaun Exp $
+// $Id: lm.php,v 1.6 2008/04/29 18:47:45 dhaun Exp $
 
-$VERSION = '0.9';
+$VERSION = '1.0';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
