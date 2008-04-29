@@ -1,8 +1,12 @@
-lm.php v0.9
+lm.php v1.0
 
-This little script merges a Geeklog (foreign) language file with the
-english.php language file, so that new strings added to english.php are
-automatically added to the other language file as well.
+This script merges a Geeklog (foreign) language file with the english.php
+language file, so that new strings added to english.php are automatically added
+to the other language file.
+
+The result is a fully working language file (no more missing texts), only that
+some texts will appear in English. This will also make it easier for
+translators since they will only have to translate the newly added strings.
 
 Usage:
 
@@ -53,4 +57,6 @@ History
 0.6  updated for Geeklog 1.4.1
 0.7  updated for Geeklog 1.5.0
 0.8  merged lm.php and mblm.php into one script; added XHTML support
+0.9  moved updating code into includes; now supports plugins
+1.0  now supports core language files and all 5 default plugins
 
