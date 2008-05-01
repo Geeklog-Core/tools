@@ -29,7 +29,20 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: core.inc,v 1.1 2008/04/27 17:11:13 dhaun Exp $
+// $Id: core.inc,v 1.2 2008/05/01 20:10:38 dhaun Exp $
+
+/**
+* Helper function: Fix URL in some language files
+*
+*/
+function Core_fix_storydenialmsg(&$access)
+{
+    if (isset($access['storydenialmsg'])) {
+        $access['storydenialmsg'] = str_replace('<a href=users.php?mode=new>',
+                    '<a href="{$_CONF[\'site_url\']}/users.php?mode=new">',
+                    $access['storydenialmsg']);
+    }
+}
 
 // save the english text strings
 $ENG01 = $LANG01;
@@ -160,6 +173,7 @@ mergeArrays($ENG32, $LANG32, 'LANG32', 'admin/plugins.php');
 mergeArrays($ENG33, $LANG33, 'LANG33', 'admin/syndication.php');
 
 mergeArrays($ENGMS,  $MESSAGE, 'MESSAGE', 'confirmation and error messages');
+Core_fix_storydenialmsg($LANG_ACCESS);
 mergeArrays($ENGAC,  $LANG_ACCESS, 'LANG_ACCESS');
 mergeArrays($ENGDB,  $LANG_DB_BACKUP, 'LANG_DB_BACKUP', 'admin/database.php');
 mergeArrays($ENGBT,  $LANG_BUTTONS, 'LANG_BUTTONS');
