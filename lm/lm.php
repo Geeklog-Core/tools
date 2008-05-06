@@ -30,9 +30,9 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: lm.php,v 1.6 2008/04/29 18:47:45 dhaun Exp $
+// $Id: lm.php,v 1.7 2008/05/06 18:24:35 dhaun Exp $
 
-$VERSION = '1.0';
+$VERSION = '1.0.1';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -67,6 +67,7 @@ if (strpos($filename, '_utf-8') !== false) {
     mb_internal_encoding('UTF-8');
 }
 
+define('XHTML', '');
 
 // list of all variables accessed in the language file
 $_DB_mysqldump_path         = '{$_DB_mysqldump_path}';
@@ -144,6 +145,9 @@ function my_strpos($s1, $s2)
 function makeXHTML($txt)
 {
     global $mb;
+
+    // fix accidentally created <brXHTML> tags in some 1.5.0b1 language files
+    $txt = my_str_replace('brXHTML', 'br', $txt);
 
     if ($mb) {
         $fc = mb_substr($txt, 0, 1);
