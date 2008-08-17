@@ -29,7 +29,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: polls.inc,v 1.1 2008/04/27 18:44:21 dhaun Exp $
+// $Id: polls.inc,v 1.2 2008/08/17 14:08:00 dhaun Exp $
 
 // save the english text strings
 $ENG_POLLS = $LANG_POLLS;
@@ -60,7 +60,7 @@ separator();
 mergeArrays($ENG_POLLS, $LANG_POLLS, 'LANG_POLLS', false);
 
 echo "\n";
-mergeArrays($ENG_LANG25, $_LANG_LANG25, 'LANG25', "admin/plugins/polls/index.php");
+mergeArrays($ENG_LANG25, $LANG25, 'LANG25', "admin/plugins/polls/index.php");
 
 mergeString($ENG_MSG19, $PLG_polls_MESSAGE19, 'PLG_polls_MESSAGE19');
 mergeString($ENG_MSG20, $PLG_polls_MESSAGE20, 'PLG_polls_MESSAGE20');
