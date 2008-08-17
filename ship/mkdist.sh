@@ -4,6 +4,8 @@
 #
 # Usage: mkdist.sh new-version old-version [german]
 # e.g. ./mkdist.sh 1.3.9rc1 1.3.8-1sr4
+#
+# $Id: mkdist.sh,v 1.3 2008/08/17 16:19:20 dhaun Exp $
 
 if [ -z "$1" ]; then
   echo "Usage: $0 new-version old-version [german]"
@@ -71,6 +73,10 @@ rm -rf system/build
 
 # no more config.php, yay!
 rm -f config.php config.php.dist
+
+mv db-config.php.dist db-config.php
+mv public_html/siteconfig.php.dist public_html/siteconfig.php
+rm -f system/lib-custom.php.dist
 
 find . -type f -name '.*' -exec rm \{\} \;
 find . -name CVS -exec rm -r \{\} \; 2>/dev/null
