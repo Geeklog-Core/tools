@@ -29,7 +29,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
-// $Id: links.inc,v 1.1 2008/04/29 18:47:46 dhaun Exp $
+// $Id: links.inc,v 1.2 2008/08/17 14:10:07 dhaun Exp $
 
 // save the english text strings
 $ENG_LINKS = $LANG_LINKS;
@@ -53,6 +53,7 @@ $ENG_MSG13 = PLG_links_MESSAGE13;
 $ENG_MSG14 = PLG_links_MESSAGE14;
 $ENG_MSG15 = PLG_links_MESSAGE15;
 $ENG_MSG16 = PLG_links_MESSAGE16;
+$ENG_MSG17 = PLG_links_MESSAGE17;
 $ENG_MSG3001 = PLG_links_MESSAGE3001;
 
 $ENG_configsections['links'] = $LANG_configsections['links'];
@@ -97,6 +98,7 @@ mergeString($ENG_MSG13, $PLG_links_MESSAGE13, 'PLG_links_MESSAGE13');
 mergeString($ENG_MSG14, $PLG_links_MESSAGE14, 'PLG_links_MESSAGE14');
 mergeString($ENG_MSG15, $PLG_links_MESSAGE15, 'PLG_links_MESSAGE15');
 mergeString($ENG_MSG16, $PLG_links_MESSAGE16, 'PLG_links_MESSAGE16');
+mergeString($ENG_MSG17, $PLG_links_MESSAGE17, 'PLG_links_MESSAGE17');
 
 echo "\n";
 echo "// Messages for the plugin upgrade\n";
