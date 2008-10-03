@@ -34,7 +34,9 @@
 // save the english text strings
 $ENG_STATIC = $LANG_STATIC;
 
-$ENG_MSG3001 = PLG_staticpages_MESSAGE3001;
+$ENG_MSG19 = $PLG_staticpages_MESSAGE19;
+$ENG_MSG20 = $PLG_staticpages_MESSAGE20;
+$ENG_MSG3001 = $PLG_staticpages_MESSAGE3001;
 
 $ENG_configsections['staticpages'] = $LANG_configsections['staticpages'];
 $ENG_confignames['staticpages'] = $LANG_confignames['staticpages'];
@@ -55,6 +57,10 @@ echo "#               YY    - phrase id number\n";
 separator();
 
 mergeArrays($ENG_STATIC, $LANG_STATIC, 'LANG_STATIC', false);
+
+echo "\n";
+mergeString($ENG_MSG19, $PLG_staticpages_MESSAGE19, 'PLG_staticpages_MESSAGE19');
+mergeString($ENG_MSG20, $PLG_staticpages_MESSAGE20, 'PLG_staticpages_MESSAGE20');
 
 echo "\n";
 echo "// Messages for the plugin upgrade\n";

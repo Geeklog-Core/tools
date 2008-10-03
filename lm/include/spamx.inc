@@ -34,9 +34,9 @@
 // save the english text strings
 $ENG_SX00 = $LANG_SX00;
 
-$ENG_MSG128 = PLG_spamx_MESSAGE128;
-$ENG_MSG8 = PLG_spamx_MESSAGE8;
-$ENG_MSG3001 = PLG_spamx_MESSAGE3001;
+$ENG_MSG128 = $PLG_spamx_MESSAGE128;
+$ENG_MSG8 = $PLG_spamx_MESSAGE8;
+$ENG_MSG3001 = $PLG_spamx_MESSAGE3001;
 
 $ENG_configsections['spamx'] = $LANG_configsections['spamx'];
 $ENG_confignames['spamx'] = $LANG_confignames['spamx'];
