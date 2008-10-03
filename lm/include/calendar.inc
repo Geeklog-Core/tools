@@ -38,12 +38,12 @@ $ENG_CAL_2 = $LANG_CAL_2;
 $ENG_CAL_ADMIN = $LANG_CAL_ADMIN;
 $ENG_CAL_MESSAGE = $LANG_CAL_MESSAGE;
 
-$ENG_MSG4 = PLG_calendar_MESSAGE4;
-$ENG_MSG17 = PLG_calendar_MESSAGE17;
-$ENG_MSG18 = PLG_calendar_MESSAGE18;
-$ENG_MSG24 = PLG_calendar_MESSAGE24;
-$ENG_MSG26 = PLG_calendar_MESSAGE26;
-$ENG_MSG3001 = PLG_calendar_MESSAGE3001;
+$ENG_MSG4 = $PLG_calendar_MESSAGE4;
+$ENG_MSG17 = $PLG_calendar_MESSAGE17;
+$ENG_MSG18 = $PLG_calendar_MESSAGE18;
+$ENG_MSG24 = $PLG_calendar_MESSAGE24;
+$ENG_MSG26 = $PLG_calendar_MESSAGE26;
+$ENG_MSG3001 = $PLG_calendar_MESSAGE3001;
 
 $ENG_configsections['calendar'] = $LANG_configsections['calendar'];
 $ENG_confignames['calendar'] = $LANG_confignames['calendar'];

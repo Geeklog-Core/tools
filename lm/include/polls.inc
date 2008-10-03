@@ -35,9 +35,9 @@
 $ENG_POLLS = $LANG_POLLS;
 $ENG_LANG25 = $LANG25;
 
-$ENG_MSG19 = PLG_polls_MESSAGE19;
-$ENG_MSG20 = PLG_polls_MESSAGE20;
-$ENG_MSG3001 = PLG_polls_MESSAGE3001;
+$ENG_MSG19 = $PLG_polls_MESSAGE19;
+$ENG_MSG20 = $PLG_polls_MESSAGE20;
+$ENG_MSG3001 = $PLG_polls_MESSAGE3001;
 
 $ENG_configsections['polls'] = $LANG_configsections['polls'];
 $ENG_confignames['polls'] = $LANG_confignames['polls'];
