@@ -1,14 +1,12 @@
 #!/bin/bash
 #
-# mkdist.sh - make a Geeklog distribution from a local CVS copy
+# mkdist.sh - make a Geeklog distribution from a local Mercurial repository
 #
-# Usage: mkdist.sh new-version old-version [german]
-# e.g. ./mkdist.sh 1.3.9rc1 1.3.8-1sr4
-#
-# $Id: mkdist.sh,v 1.3 2008/08/17 16:19:20 dhaun Exp $
+# Usage: mkdist.sh new-version old-version
+# e.g. ./mkdist.sh 1.3.9rc1 1.3.8-1sr4 [repository-dir]
 
 if [ -z "$1" ]; then
-  echo "Usage: $0 new-version old-version [german]"
+  echo "Usage: $0 new-version-number old-version-number [repository-dir]"
   exit
 fi
 
@@ -18,13 +16,15 @@ if [ -z "$2" ]; then
 fi
 
 if [ -z "$3" ]; then
-  langv="english"
+  repository="geeklog"
 else
-  langv="german"
+  repository="$3"
 fi
 
 NEWVERSION="geeklog-$1"
 OLDVERSION="geeklog-$2"
+
+echo "Creating $NEWVERSION from $repository"
 
 cd dist
 
@@ -32,21 +32,20 @@ if [ -d $NEWVERSION ]; then
   rm -rf $NEWVERSION
 fi
 
-cp -r -p ../Geeklog-1.x $NEWVERSION
+# use tar to create a copy without the .hg directory
+cd ../geeklog
+tar cf gl-temp.tar '--exclude=\.hg' $repository
+mv gl-temp.tar ../dist/
+cd ../dist
+tar xf gl-temp.tar
+rm -f gl-temp.tar
+mv $repository $NEWVERSION
+
 cp -r -p ../pear-1.3/pear/* $NEWVERSION/system/pear/
 
 cd $NEWVERSION
 
-# remove old default themes
-rm -rf public_html/layout/Classic
-rm -rf public_html/layout/clean
-rm -rf public_html/layout/Digital_Monochrome
-rm -rf public_html/layout/gameserver
-rm -rf public_html/layout/Smooth_Blue
-rm -rf public_html/layout/XSilver
-rm -rf public_html/layout/Yahoo
-
-# no PDF support for now
+# still no PDF support
 rm public_html/pdfgenerator.php
 rm -rf public_html/layout/professional/pdfgenerator
 rm -rf pdfs
@@ -59,10 +58,6 @@ rm -rf plugins/spamx/magpierss
 # you'd need to set up a honeypot to use it
 rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
 
-# don't ship these language files any more
-rm -f language/chinese_big5.php
-rm -f language/chinese_gb2312.php
-
 # PEAR buildpackage files
 rm -f plugins/calendar/buildpackage.php
 rm -f plugins/links/buildpackage.php
@@ -71,47 +66,33 @@ rm -f plugins/spamx/buildpackage.php
 rm -f plugins/staticpages/buildpackage.php
 rm -rf system/build
 
-# no more config.php, yay!
-rm -f config.php config.php.dist
+# about time we clean up the install directory ...
+rm -f public_html/admin/install/addindex.php
 
 mv db-config.php.dist db-config.php
 mv public_html/siteconfig.php.dist public_html/siteconfig.php
 rm -f system/lib-custom.php.dist
 
 find . -type f -name '.*' -exec rm \{\} \;
-find . -name CVS -exec rm -r \{\} \; 2>/dev/null
+#find . -name CVS -exec rm -r \{\} \; 2>/dev/null
 
 find . -type f -exec chmod a-x \{\} \;
 chmod a+x emailgeeklogstories
 
-# set the default permissions ...
-chmod -R 775 backups
-chmod -R 775 data
-chmod -R 775 logs
-# chmod -R 775 pdfs
-chmod -R 775 public_html/backend
-chmod -R 775 public_html/images/articles
-chmod -R 775 public_html/images/topics
-chmod -R 775 public_html/images/userphotos
-
-if [ "$langv" = "german" ]; then
-  echo "Making German version ..."
-  rm -rf public_html/docs
-  mv public_html/docs.german public_html/docs
-  mv config.php.german config.php
-  mv sql/mysql_tableanddata.php.german sql/mysql_tableanddata.php
-  mv sql/updates/mysql_1.3.8_to_1.3.9.php.german sql/updates/mysql_1.3.8_to_1.3.9.php
-  mv sql/updates/mysql_1.3.9_to_1.3.10.php.german sql/updates/mysql_1.3.9_to_1.3.10.php
-  mv public_html/admin/install/success.php.german public_html/admin/install/success.php
-else
-  echo "Making English version ..."
-  rm -rf public_html/docs.german
-  rm -f config.php.german
-  rm -f sql/mysql_tableanddata.php.german
-  rm -f sql/updates/mysql_1.3.8_to_1.3.9.php.german
-  rm -f sql/updates/mysql_1.3.9_to_1.3.10.php.german
-  rm -f public_html/admin/install/success.php.german
-fi
+# set the default permissions
+chmod 775 backups
+chmod 775 data
+chmod 775 logs
+chmod 664 logs/*log
+# chmod 775 pdfs
+chmod 775 public_html/backend
+chmod 644 public_html/backend/*.rss
+chmod 775 public_html/images/articles
+chmod 664 public_html/images/articles/*
+chmod 775 public_html/images/topics
+chmod 664 public_html/images/topics/*
+chmod 775 public_html/images/userphotos
+chmod 664 public_html/images/userphotos/*
 
 cd ..
 
