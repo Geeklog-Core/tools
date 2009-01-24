@@ -2,7 +2,7 @@ mkdist.sh is the script I use to create the "official" Geeklog tarballs. It
 requires the following directory structure:
 
     ./mkdist.sh                 -- the script
-    ./Geeklog-1.x/              -- the local copy of the CVS repository
+    ./geeklog/geeklog/          -- the local copy of the Mercurial repository
     ./dist/                     -- directory of previous releases
     ./pear/pear-1.3/            -- the PEAR classes to use live here, e.g.
                    /Archive/
@@ -23,8 +23,12 @@ The tarball will include the PEAR classes and a list of the files that changed
 over the previous version. The script will also print the md5 checksum of the
 tarball it just created.
 
-The script also has an option to build a German release - from files that
-currently only live on my local hard drive ...
+There's a third (optional) argument: The name of the directory to pack. That
+directory has to be below the "geeklog" directory and defaults to "geeklog"
+(hence the ./geeklog/geeklog/ above). To create a tarball from a repository
+in ./geeklog/bugfix, use
+
+    ./mkdist.sh 1.4.17sr3 1.4.17sr2 bugfix
 
 bye, Dirk
 
