@@ -42,6 +42,8 @@ rm -f gl-temp.tar
 mv $repository $NEWVERSION
 
 cp -r -p ../pear-1.3/pear/* $NEWVERSION/system/pear/
+# remove PHP_Compat package
+rm -rf $NEWVERSION/system/pear/PHP
 
 cd $NEWVERSION
 
