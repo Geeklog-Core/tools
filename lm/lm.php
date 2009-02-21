@@ -3,13 +3,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.5                                                               |
+// | Geeklog 1.6                                                               |
 // +---------------------------------------------------------------------------+
 // | lm.php                                                                    |
 // |                                                                           |
 // | Update a language file by merging it with english.php                     |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2008 by the following authors:                         |
+// | Copyright (C) 2004-2009 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -29,10 +29,8 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
-// $Id: lm.php,v 1.7 2008/05/06 18:24:35 dhaun Exp $
 
-$VERSION = '1.0.1';
+$VERSION = '1.0.2';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -91,6 +89,8 @@ $type                       = '{$type}';
 // load the English language file
 if (empty($module)) {
     require_once 'language/english.php';
+} elseif ($module == 'install') {
+    require_once 'public_html/admin/install/language/english.php';
 } else {
     require_once 'plugins/' . $module . '/language/english.php';
 }
@@ -106,6 +106,11 @@ $incpath .= 'include' . DIRECTORY_SEPARATOR;
 function separator()
 {
     echo "###############################################################################\n";
+}
+
+function separatorThin()
+{
+    echo "// +---------------------------------------------------------------------------+\n";
 }
 
 /**
@@ -333,6 +338,15 @@ function readCredits($langfile)
                 } elseif (strstr($line, '*/') !== false) {
                     // end of credits reached, Spam-X style
                     break;
+                } elseif (strstr($line, '+-----') !== false) {
+                    $nextline = fgets($fh);
+                    $tst = trim($nextline);
+                    if (empty($tst)) {
+                        // end of credits reached, install script style
+                        break;
+                    } else {
+                        $credits[] = $nextline;
+                    }
                 }
             } else {
                 if (strstr ($line, '#####') !== false) {
@@ -341,6 +355,10 @@ function readCredits($langfile)
                     $credits[] = $line;
                 } elseif (strstr($line, '/**') !== false) {
                     // start of credits, Spam-X style
+                    $firstcomment = true;
+                    $credits[] = $line;
+                } elseif (strstr($line, '/* Reminder:') !== false) {
+                    // start of credits, install script style
                     $firstcomment = true;
                     $credits[] = $line;
                 }
