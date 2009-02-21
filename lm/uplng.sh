@@ -1,13 +1,13 @@
 #!/bin/bash
 # +---------------------------------------------------------------------------+
-# | Geeklog 1.5                                                               |
+# | Geeklog 1.6                                                               |
 # +---------------------------------------------------------------------------+
 # | uplng.sh                                                                  |
 # |                                                                           |
 # | Helper script to update the Geeklog language files,                       |
 # | using the lm.php script.                                                  |
 # +---------------------------------------------------------------------------+
-# | Copyright (C) 2004-2008 by the following authors:                         |
+# | Copyright (C) 2004-2009 by the following authors:                         |
 # |                                                                           |
 # | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 # +---------------------------------------------------------------------------+
@@ -27,8 +27,6 @@
 # | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 # |                                                                           |
 # +---------------------------------------------------------------------------+
-#
-# $Id: uplng.sh,v 1.8 2008/04/29 18:47:45 dhaun Exp $
 
 # Installation and usage:
 # - copy this script into the /path/to/geeklog of a local Geeklog install
@@ -40,14 +38,14 @@
 # just a basedir to save some typing ...
 basedir=/Users/dirk/darwin
 
-# the /path/to/geeklog of your local copy of the CVS repository
-cvspath=$basedir/cvs.geeklog.net/Geeklog-1.x
+# the /path/to/geeklog of your local copy of the Mercurial repository
+cvspath=$basedir/hg.geeklog.net/geeklog/geeklog
 
 # target directory - where this script is located aka /path/to/geeklog
-destpath=$basedir/work
+destpath=`pwd`
 
 # path to the lm.php script and the include directory
-lm=$basedir/cvs.geeklog.net/tools/lm/lm.php
+lm=$basedir/hg.geeklog.net/tools/tools/lm/lm.php
 
 
 # you shouldn't need to change anything below ...
@@ -59,6 +57,11 @@ function doConvert() { # parameters: "to" "from" "module"
 
     modpath=$1/language
     langpath=$2/language
+  elif [ "$3" = "install" ]; then
+    echo "=== $3 ==="
+
+    modpath=$1/public_html/admin/$3/language
+    langpath=$2/public_html/admin/$3/language
   else
     echo "=== $3 ==="
 
@@ -73,7 +76,9 @@ function doConvert() { # parameters: "to" "from" "module"
   files=`ls -1 *.php | grep -v english.php | grep -v english_utf-8.php`
 
   cp english.php $modpath
-  cp english_utf-8.php $modpath
+  if [ -e english_utf-8.php ]; then
+    cp english_utf-8.php $modpath
+  fi
 
   cd $destpath
   for l in $files; do
@@ -89,4 +94,5 @@ doConvert $destpath $cvspath "links"
 doConvert $destpath $cvspath "polls"
 doConvert $destpath $cvspath "spamx"
 doConvert $destpath $cvspath "staticpages"
+doConvert $destpath $cvspath "install"
 

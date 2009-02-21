@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.5                                                               |
+// | Geeklog 1.6                                                               |
 // +---------------------------------------------------------------------------+
 // | core.inc                                                                  |
 // |                                                                           |
 // | Update a core language file by merging it with english.php                |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2008 by the following authors:                         |
+// | Copyright (C) 2004-2009 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -28,8 +28,6 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
-// $Id: core.inc,v 1.3 2008/05/02 15:18:20 dhaun Exp $
 
 /**
 * Helper function: Fix URLs in some language files
@@ -150,6 +148,10 @@ separator();
 echo "# USER PHRASES - These are file phrases used in end user scripts\n";
 separator();
 echo "\n";
+
+// http://project.geeklog.net/tracking/view.php?id=801
+$ENG01[95]  = str_replace('Powered By', 'Powered by', $ENG01[95]);
+$LANG01[95] = str_replace('Powered By', 'Powered by', $LANG01[95]);
 
 mergeArrays($ENG01, $LANG01, 'LANG01', 'lib-common.php');
 mergeArrays($ENG03, $LANG03, 'LANG03', 'comment.php');
