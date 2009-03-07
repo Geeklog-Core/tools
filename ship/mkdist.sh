@@ -47,10 +47,8 @@ rm -rf $NEWVERSION/system/pear/PHP
 
 cd $NEWVERSION
 
-# still no PDF support
-rm public_html/pdfgenerator.php
-rm -rf public_html/layout/professional/pdfgenerator
-rm -rf pdfs
+# Blaine's test file ...
+rm -f public_html/blaine.php
 
 # don't ship MT-Blacklist modules any more
 rm -f plugins/spamx/MTBlackList.Examine.class.php
