@@ -55,6 +55,7 @@ rm -f plugins/spamx/MTBlackList.Examine.class.php
 rm -f plugins/spamx/Import.Admin.class.php
 # only used by the Import class
 rm -rf plugins/spamx/magpierss
+rm -f plugins/spamx/rss.inc.php
 # you'd need to set up a honeypot to use it
 rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
 
