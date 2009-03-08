@@ -1,0 +1,8 @@
+These are the bash scripts that run from cronjobs on project.geeklog.net:
+
+- nightly.sh -- creates the nightly tarball at
+                http://project.geeklog.net/nightly/geeklog-nightly.tar.gz
+
+- phpdoc.sh  -- updates the phpDocumentor documentation of the Geeklog source
+                code at http://project.geeklog.net/src/
+
