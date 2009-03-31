@@ -67,6 +67,10 @@ rm -f plugins/spamx/buildpackage.php
 rm -f plugins/staticpages/buildpackage.php
 rm -rf system/build
 
+rm -rf pdfs
+rm -f public_html/pdfgenerator.php
+rm -rf public_html/layout/professional/pdfgenerator
+
 # about time we clean up the install directory ...
 rm -f public_html/admin/install/addindex.php
 
