@@ -13,13 +13,16 @@
 
 cd /usr/home/geeklog2/nightly/geeklog-nightly
 
+rm -f system/lib-custom.php
+
 # update repository
 /usr/local/bin/hg -q pull > /dev/null 2>&1
 /usr/local/bin/hg -q up > /dev/null 2>&1
 
-# fix config names
+# fix names of .dist files
 mv db-config.php.dist db-config.php
 mv public_html/siteconfig.php.dist public_html/siteconfig.php
+mv system/lib-custom.php.dist system/lib-custom.php
 
 # add PEAR classes
 cd system/pear
@@ -43,7 +46,6 @@ rm -f plugins/spamx/rss.inc.php
 rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
 # about time we clean up the install directory ...
 rm -f public_html/admin/install/addindex.php
-rm -f system/lib-custom.php.dist
 
 # PEAR buildpackage files
 rm -f plugins/calendar/buildpackage.php
@@ -76,9 +78,11 @@ cd ..
 tar cf geeklog-nightly.tar '--exclude=\.hg' geeklog-nightly
 gzip geeklog-nightly.tar
 
-# rename config files back to their names in the repository
+# rename .dist files back to their names in the repository
 mv geeklog-nightly/db-config.php geeklog-nightly/db-config.php.dist
 mv geeklog-nightly/public_html/siteconfig.php geeklog-nightly/public_html/siteconfig.php.dist
+# leave copy of lib-custom.php for phpDocumentor
+cp -p geeklog-nightly/system/lib-custom.php geeklog-nightly/system/lib-custom.php.dist
 
 mv geeklog-nightly.tar.gz /usr/www/users/geeklog2/www/nightly/
 
