@@ -9,7 +9,7 @@
 <p align="left"><a href="http://www.geeklog.net/" title="go to the Geeklog homepage"><img src="http://www.geeklog.net/docs/images/newlogo.gif" alt="" width="243" height="90" border="0"></a></p>
 <?php
 
-$current = '1.5.2sr2';
+$current = '1.5.2sr3';
 $version = '';
 if (isset ($_GET['version'])) {
     $version = strip_tags ($_GET['version']);
@@ -31,20 +31,21 @@ $upgrade = array (
     '1.3.11sr6' => '1.3.11sr7-1',
     '1.3.11sr7' => '1.3.11sr7-1',
 */
-    '1.4.0'     => '1.5.2sr2',
-    '1.4.0sr1'  => '1.5.2sr2',
-    '1.4.0sr2'  => '1.5.2sr2',
-    '1.4.0sr3'  => '1.5.2sr2',
-    '1.4.0sr4'  => '1.5.2sr2',
-    '1.4.0sr5'  => '1.5.2sr2',
-    '1.4.0sr5-1' => '1.5.2sr2',
-    '1.4.0sr6'  => '1.5.2sr2',
-    '1.4.1'     => '1.5.2sr2',
+    '1.4.0'     => '1.5.2sr3',
+    '1.4.0sr1'  => '1.5.2sr3',
+    '1.4.0sr2'  => '1.5.2sr3',
+    '1.4.0sr3'  => '1.5.2sr3',
+    '1.4.0sr4'  => '1.5.2sr3',
+    '1.4.0sr5'  => '1.5.2sr3',
+    '1.4.0sr5-1' => '1.5.2sr3',
+    '1.4.0sr6'  => '1.5.2sr3',
+    '1.4.1'     => '1.5.2sr3',
 
-    '1.5.0'     => '1.5.2sr2',
-    '1.5.1'     => '1.5.2sr2',
-    '1.5.2'     => '1.5.2sr2',
-    '1.5.2sr1'  => '1.5.2sr2'
+    '1.5.0'     => '1.5.2sr3',
+    '1.5.1'     => '1.5.2sr3',
+    '1.5.2'     => '1.5.2sr3',
+    '1.5.2sr1'  => '1.5.2sr3',
+    '1.5.2sr2'  => '1.5.2sr3'
 );
 
 $v = explode ('.', $version);
