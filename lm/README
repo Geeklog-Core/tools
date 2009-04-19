@@ -1,4 +1,4 @@
-lm.php v1.0.2
+lm.php v1.0.3
 
 This script merges a Geeklog (foreign) language file with the english.php
 language file, so that new strings added to english.php are automatically added
@@ -61,4 +61,5 @@ History
 1.0   now supports core language files and all 5 default plugins
 1.0.1 fixed handling of <br> tags and fixed accidentally created <brXHTML> tags
 1.0.2 added support for install script language files
+1.0.3 added $LANG_SECTEST
 
