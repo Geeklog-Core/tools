@@ -76,7 +76,9 @@ rm -f public_html/admin/install/addindex.php
 
 mv db-config.php.dist db-config.php
 mv public_html/siteconfig.php.dist public_html/siteconfig.php
-rm -f system/lib-custom.php.dist
+
+# lib-custom.php.dist is the actual lib-custom.php file now ...
+mv system/lib-custom.php.dist system/lib-custom.php
 
 find . -type f -name '.*' -exec rm \{\} \;
 #find . -name CVS -exec rm -r \{\} \; 2>/dev/null
