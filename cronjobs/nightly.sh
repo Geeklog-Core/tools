@@ -47,6 +47,10 @@ rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
 # about time we clean up the install directory ...
 rm -f public_html/admin/install/addindex.php
 
+# old upgrade files (from pre-1.3 versions)
+rm -f sql/updates/*.sql
+rm -f sql/updates/1.2.5-1_to_1.3.NOTES
+
 # PEAR buildpackage files
 rm -f plugins/calendar/buildpackage.php
 rm -f plugins/links/buildpackage.php
