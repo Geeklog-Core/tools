@@ -59,6 +59,10 @@ rm -f plugins/spamx/rss.inc.php
 # you'd need to set up a honeypot to use it
 rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
 
+# old upgrade files (from pre-1.3 versions)
+rm -f sql/updates/*.sql
+rm -f sql/updates/1.2.5-1_to_1.3.NOTES
+
 # PEAR buildpackage files
 rm -f plugins/calendar/buildpackage.php
 rm -f plugins/links/buildpackage.php
