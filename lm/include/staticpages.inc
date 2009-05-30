@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.5                                                               |
+// | Geeklog 1.6                                                               |
 // +---------------------------------------------------------------------------+
 // | staticpages.inc                                                           |
 // |                                                                           |
 // | Update a staticpages language file by merging it with english.php         |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2008 by the following authors:                              |
+// | Copyright (C) 2008-2009 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -28,12 +28,11 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
-// $Id: staticpages.inc,v 1.1 2008/04/27 19:04:50 dhaun Exp $
 
 // save the english text strings
 $ENG_STATIC = $LANG_STATIC;
 
+$ENG_MSG15 = $PLG_staticpages_MESSAGE15;
 $ENG_MSG19 = $PLG_staticpages_MESSAGE19;
 $ENG_MSG20 = $PLG_staticpages_MESSAGE20;
 $ENG_MSG3001 = $PLG_staticpages_MESSAGE3001;
@@ -59,6 +58,7 @@ separator();
 mergeArrays($ENG_STATIC, $LANG_STATIC, 'LANG_STATIC', false);
 
 echo "\n";
+mergeString($ENG_MSG15, $PLG_staticpages_MESSAGE15, 'PLG_staticpages_MESSAGE15');
 mergeString($ENG_MSG19, $PLG_staticpages_MESSAGE19, 'PLG_staticpages_MESSAGE19');
 mergeString($ENG_MSG20, $PLG_staticpages_MESSAGE20, 'PLG_staticpages_MESSAGE20');
 
