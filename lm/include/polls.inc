@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.5                                                               |
+// | Geeklog 1.6                                                               |
 // +---------------------------------------------------------------------------+
 // | polls.inc                                                                 |
 // |                                                                           |
 // | Update a polls language file by merging it with english.php               |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2008 by the following authors:                              |
+// | Copyright (C) 2008-2009 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -28,13 +28,12 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
-// $Id: polls.inc,v 1.2 2008/08/17 14:08:00 dhaun Exp $
 
 // save the english text strings
 $ENG_POLLS = $LANG_POLLS;
 $ENG_LANG25 = $LANG25;
 
+$ENG_MSG15 = $PLG_polls_MESSAGE15;
 $ENG_MSG19 = $PLG_polls_MESSAGE19;
 $ENG_MSG20 = $PLG_polls_MESSAGE20;
 $ENG_MSG3001 = $PLG_polls_MESSAGE3001;
@@ -62,6 +61,7 @@ mergeArrays($ENG_POLLS, $LANG_POLLS, 'LANG_POLLS', false);
 echo "\n";
 mergeArrays($ENG_LANG25, $LANG25, 'LANG25', "admin/plugins/polls/index.php");
 
+mergeString($ENG_MSG15, $PLG_polls_MESSAGE15, 'PLG_polls_MESSAGE15');
 mergeString($ENG_MSG19, $PLG_polls_MESSAGE19, 'PLG_polls_MESSAGE19');
 mergeString($ENG_MSG20, $PLG_polls_MESSAGE20, 'PLG_polls_MESSAGE20');
 
