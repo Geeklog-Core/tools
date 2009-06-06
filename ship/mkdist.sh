@@ -50,6 +50,10 @@ cd $NEWVERSION
 # Blaine's test file ...
 rm -f public_html/blaine.php
 
+# accidental early GSoC commits ...
+rm -f sql/pgsql_tableanddata.php
+rm -f system/databases/pgsql.class.php
+
 # don't ship MT-Blacklist modules any more
 rm -f plugins/spamx/MTBlackList.Examine.class.php
 rm -f plugins/spamx/Import.Admin.class.php
