@@ -94,5 +94,6 @@ doConvert $destpath $cvspath "links"
 doConvert $destpath $cvspath "polls"
 doConvert $destpath $cvspath "spamx"
 doConvert $destpath $cvspath "staticpages"
+doConvert $destpath $cvspath "xmlsitemap"
 doConvert $destpath $cvspath "install"
 

@@ -61,5 +61,5 @@ History
 1.0   now supports core language files and all 5 default plugins
 1.0.1 fixed handling of <br> tags and fixed accidentally created <brXHTML> tags
 1.0.2 added support for install script language files
-1.0.3 added $LANG_SECTEST
+1.0.3 added $LANG_SECTEST and the XMLSitemap plugin
 
