@@ -9,7 +9,7 @@
 <p align="left"><a href="http://www.geeklog.net/" title="go to the Geeklog homepage"><img src="http://www.geeklog.net/docs/images/newlogo.gif" alt="" width="243" height="90" border="0"></a></p>
 <?php
 
-$current = '1.6.0';
+$current = '1.6.0sr1';
 $version = '';
 if (isset ($_GET['version'])) {
     $version = strip_tags ($_GET['version']);
@@ -39,13 +39,16 @@ $upgrade = array (
     '1.4.0sr5-1' => '1.5.2sr4',
     '1.4.0sr6'  => '1.5.2sr4',
 */
-    '1.4.1'     => '1.6.0',
-    '1.5.0'     => '1.6.0',
-    '1.5.1'     => '1.6.0',
-    '1.5.2'     => '1.6.0',
-    '1.5.2sr1'  => '1.6.0',
-    '1.5.2sr2'  => '1.6.0',
-    '1.5.2sr3'  => '1.6.0'
+    '1.4.1'     => '1.6.0sr1',
+    '1.5.0'     => '1.6.0sr1',
+    '1.5.1'     => '1.6.0sr1',
+    '1.5.2'     => '1.5.2sr5',
+    '1.5.2sr1'  => '1.5.2sr5',
+    '1.5.2sr2'  => '1.5.2sr5',
+    '1.5.2sr3'  => '1.5.2sr5',
+    '1.5.2sr4'  => '1.5.2sr5',
+    '1.5.2sr5'  => '1.6.0sr1',
+    '1.6.0'     => '1.6.0sr1'
 );
 
 $v = explode ('.', $version);
