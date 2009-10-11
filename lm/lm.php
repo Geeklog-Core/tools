@@ -391,6 +391,6 @@ if (empty($module)) {
     require_once $incpath . $module . '.inc';
 }
 
-echo "\n?>";
+echo "\n?>\n";
 
 ?>
