@@ -91,6 +91,17 @@ mv system/lib-custom.php.dist system/lib-custom.php
 find . -type f -name '.*' -exec rm \{\} \;
 #find . -name CVS -exec rm -r \{\} \; 2>/dev/null
 
+# if on a Mac, check that we don't have any of those pesky xattributes set
+xattr=`which xattr`
+if [ -n "$xattr" ]; then
+  xa=`xattr -r .`
+  if [ -n "$xa" ]; then
+    echo "xattr found:"
+    echo $xa
+    exit
+  fi
+fi
+
 find . -type f -exec chmod a-x \{\} \;
 chmod a+x emailgeeklogstories
 
