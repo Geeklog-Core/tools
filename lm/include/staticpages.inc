@@ -35,6 +35,7 @@ $ENG_STATIC = $LANG_STATIC;
 $ENG_MSG15 = $PLG_staticpages_MESSAGE15;
 $ENG_MSG19 = $PLG_staticpages_MESSAGE19;
 $ENG_MSG20 = $PLG_staticpages_MESSAGE20;
+$ENG_MSG21 = $PLG_staticpages_MESSAGE21;
 $ENG_MSG3001 = $PLG_staticpages_MESSAGE3001;
 
 $ENG_configsections['staticpages'] = $LANG_configsections['staticpages'];
@@ -61,6 +62,7 @@ echo "\n";
 mergeString($ENG_MSG15, $PLG_staticpages_MESSAGE15, 'PLG_staticpages_MESSAGE15');
 mergeString($ENG_MSG19, $PLG_staticpages_MESSAGE19, 'PLG_staticpages_MESSAGE19');
 mergeString($ENG_MSG20, $PLG_staticpages_MESSAGE20, 'PLG_staticpages_MESSAGE20');
+mergeString($ENG_MSG21, $PLG_staticpages_MESSAGE21, 'PLG_staticpages_MESSAGE21');
 
 echo "\n";
 echo "// Messages for the plugin upgrade\n";
@@ -75,7 +77,7 @@ mergeArrays($ENG_confignames['staticpages'], $LANG_confignames['staticpages'], "
 mergeArrays($ENG_configsubgroups['staticpages'], $LANG_configsubgroups['staticpages'], "LANG_configsubgroups['staticpages']", false);
 mergeArrays($ENG_fs['staticpages'], $LANG_fs['staticpages'], "LANG_fs['staticpages']", false);
 echo "\n";
-echo "// Note: entries 0, 1, 9, and 12 are the same as in \$LANG_configselects['Core']";
+echo "// Note: entries 0, 1, 9, 12, 17 are the same as in \$LANG_configselects['Core']";
 mergeArrays($ENG_configselects['staticpages'], $LANG_configselects['staticpages'], "LANG_configselects['staticpages']", false);
 
 ?>
