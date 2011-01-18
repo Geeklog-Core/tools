@@ -1,0 +1,4 @@
+versionchecker.php - Creates the web page.
+graph.php - Creates an image with the timeline of recent releases.
+config.php - Stores information about releases.
+
