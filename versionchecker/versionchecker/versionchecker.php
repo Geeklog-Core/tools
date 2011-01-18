@@ -153,6 +153,9 @@ function COM_versionConvert($version)
 // ************ MAIN ************
 // ******************************
 
+$system_timezone = @date_default_timezone_get();
+date_default_timezone_set($system_timezone);
+
 // GET parameter
 $version = '';
 if (!empty($_GET['version'])) {
