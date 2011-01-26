@@ -3,13 +3,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.6                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | lm.php                                                                    |
 // |                                                                           |
 // | Update a language file by merging it with english.php                     |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2009 by the following authors:                         |
+// | Copyright (C) 2004-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -30,7 +30,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 
-$VERSION = '1.0.3';
+$VERSION = '1.0.4';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -365,6 +365,12 @@ function readCredits($langfile)
             }
         }
         fclose ($fh);
+    }
+
+    // ensure rebranding extends to the credits :)
+    $csize = count($credits);
+    for ($i = 0; $i < $csize; $i++) {
+        $credits[$i] = str_replace('GeekLog', 'Geeklog', $credits[$i]);
     }
 
     return ($credits);
