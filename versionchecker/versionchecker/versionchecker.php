@@ -10,7 +10,7 @@
 // +---------------------------------------------------------------------------+
 // | Copyright (C) 2011 by the following authors:                              |
 // |                                                                           |
-// | Authors: Rouslan Placella  - rouslan AT placella DOT com>                 |
+// | Authors: Rouslan Placella  - rouslan AT placella DOT com                  |
 // +---------------------------------------------------------------------------+
 // |                                                                           |
 // | This program is free software; you can redistribute it and/or             |
@@ -44,17 +44,17 @@ require('config.php');
 */
 function printHeader()
 {
-?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
     <title>Geeklog Version Check</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="versionchecker/style.css">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="versionchecker/style.css"/>
 </head>
 <body>
 <div class="top">
     <a style="position: relative; top: 60px;" href="http://www.geeklog.net/" title="go to the Geeklog homepage">
-    <img src="versionchecker/img/speck.gif" width="462" height="150" alt="" border="0"></a>
+    <img src="versionchecker/img/speck.gif" width="462" height="150" alt=""/></a>
 </div>
 <div class="main">
 <div class="content">
@@ -80,7 +80,7 @@ function printHeader()
 function printFooter($version='', $case)
 {
     echo "</td></tr></table>\n";
-    echo "<img alt='Timeline of recent Geeklog releases' class='timeline' src='versionchecker/versionchecker.php?timeline=1&amp;version=" . $version . "&amp;case=" . $case . "'></div></div>";
+    echo "<img alt='Timeline of recent Geeklog releases' class='timeline' src='versionchecker/versionchecker.php?timeline=1&amp;version=" . $version . "&amp;case=" . $case . "'/></div></div>";
     echo "<div class=\"bottom\">&nbsp;</div></body></html>";
     die();
 }
@@ -206,22 +206,22 @@ printHeader(); // Print the top part of the HTML page
 // ************************************
 // case 1 - invalid version number
 if (!isValidVersion($version)) {
-    echo "<img src='versionchecker/img/icons/critical.png' alt='Error!' width='48' height='48'>\n";
+    echo "<img src='versionchecker/img/icons/critical.png' alt='Error!' width='48' height='48'/>\n";
     echo "</td><td>\n";
     echo "<h1>Sorry, an ERROR has occured while processing your request.</h1>\n";
     echo "<p>We were unable to recognise the version number of your current Geeklog installation. \n";
     echo "If this problem persists, please visit <a href='http://www.geeklog.net/staticpages/index.php/20011217123134458'>this page</a>\n ";
-    echo "to discover how you can get support.<p>We apologise for any inconvenience that this may have caused you.</p>\n";
+    echo "to discover how you can get support.</p><p>We apologise for any inconvenience that this may have caused you.</p>\n";
     echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>Download Now<br>Geeklog $current </a></div><p>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br>Available Downloads</a></div>\n";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>Download Now<br/>Geeklog $current </a></div><br/>\n";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br/>Available Downloads</a></div>\n";
     printFooter('', 1);
 }
 
 // ************************************
 // case 2 - OK, version up-to-date
 if ($version == $current) {
-    echo "<img src='versionchecker/img/icons/ok.png' alt='OK!' width='48' height='48'>\n";
+    echo "<img src='versionchecker/img/icons/ok.png' alt='OK!' width='48' height='48'/>\n";
     echo "</td><td>\n";
     echo "<h1>Congratulations, your Geeklog installation is up-to-date.</h1>\n";
     echo "<p>At the moment no action is required on your part to keep your installation secure. \n";
@@ -229,7 +229,7 @@ if ($version == $current) {
     echo "aware of any available updates. Alternatively, you may subscribe to the low-volume \n";
     echo "<a href='http://eight.pairlist.net/mailman/listinfo/geeklog-announce'>announcements mailing list</a> to receive information about updates.</p>\n";
     echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br>Available Downloads</a></div>\n";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br/>Available Downloads</a></div>\n";
     printFooter($version, 2);
 }
 
@@ -244,7 +244,7 @@ foreach ($releases as $key => $release) {
     }
 }
 if ($index !== false && empty($releases[$index]['upgrade'])) {
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'>\n";
+    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
     echo "</td><td>\n";
     echo "<h1>Upgrade Recommendation</h1>\n";
     echo "<p>The Geeklog version you are running, $version, is out of date";
@@ -255,72 +255,72 @@ if ($index !== false && empty($releases[$index]['upgrade'])) {
         // Supported
         echo ". We recommend upgrading to the current version, $current, at your earliest convenience.\n";
     }
-    echo "<p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
+    echo "</p><p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
     echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br>Download Geeklog $current</a></div><p>\n";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current</a></div>\n";
     printFooter($version, 3);
 }
 
 // ************************************
 // case 4 - upgrade - alternative available
 if ($index !== false && !empty($releases[$index]['upgrade'])) {
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'>\n";
+    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
     echo "</td><td>\n";
     echo "<h1>Upgrade recommendation</h1>\n";
-    echo "<p>There are two upgrade paths available for the Geeklog version ($version) that you are running.<p>\n";
+    echo "<p>There are two upgrade paths available for the Geeklog version ($version) that you are running.</p><p>\n";
     echo "The recommended upgrade for your installation is to version $current. \n";
-    echo "This upgrade provides bugfixes and will also provide you with some new features.<p>\n";
+    echo "This upgrade provides bugfixes and will also provide you with some new features.</p><p>\n";
     echo "Alternatively you may choose to upgrade to version " . $releases[$index]['upgrade'] . ". \n";
-    echo "This upgrade resolves important security issues, but will not provide you with any new features.<p>\n";
+    echo "This upgrade resolves important security issues, but will not provide you with any new features.</p><p>\n";
     echo "We recommend that you perform one of the two available upgrades as soon as possible by clicking on the buttons located on the right side of this page</p>\n";
     echo "</td><td style='width: 237px;'>";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br>Download Geeklog $current </a></div><p>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=10'>ALTERNATIVE UPGRADE<br>Download Geeklog " . $releases[$index]['upgrade'] . "</a></div>\n";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current </a></div><br/>\n";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=10'>ALTERNATIVE UPGRADE<br/>Download Geeklog " . $releases[$index]['upgrade'] . "</a></div>\n";
     printFooter($version, 4);
 }
 
 // ************************************
 // case 5 - obsolete
 if (version_compare(COM_versionConvert($version), COM_versionConvert($releases[0]['version']), '<')) {
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'>\n";
+    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
     echo "</td><td>\n";
     echo "<h1>Upgrade Recommendation</h1>\n";
     echo "<p>The Geeklog version you are running, $version, is rather old and not supported any more. In your own interest, ";
-    echo "we strongly encourage you to upgrade to the current release, $current.<p>";
-    echo "<p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
+    echo "we strongly encourage you to upgrade to the current release, $current.</p><p>";
+    echo "</p><p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
     echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br>Download Geeklog $current</a></div><p>";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current</a></div>";
     printFooter($version, 5);
 }
 
 // ************************************
 // case 6 - Development
 if (version_compare(COM_versionConvert($version), COM_versionConvert($current), '>')) {
-    echo "<img src='versionchecker/img/icons/info.png' alt='Info!' width='48' height='48'>\n";
+    echo "<img src='versionchecker/img/icons/info.png' alt='Info!' width='48' height='48'/>\n";
     echo "</td><td>\n";
     echo "<h1>Development version detected</h1>\n";
-    echo "<p>The current version of Geeklog is <strong>$current</strong> but it seems you are running Geeklog $version, which looks like a development version.<p>";
+    echo "<p>The current version of Geeklog is <strong>$current</strong> but it seems you are running Geeklog $version, which looks like a development version.</p><p>";
     echo "Please note that it is not recommended to use a development version of Geeklog in a production environment as it may ";
-    echo " be unstable. You may receive the latest stable version of Geeklog by clicking on the button located on the right side of this page.<p>";
+    echo " be unstable. You may receive the latest stable version of Geeklog by clicking on the button located on the right side of this page.</p><p>";
     echo "If you are a Geeklog developer, then you probably already knew all this. So, happy coding!</p>\n";
     echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>Download Now<br>Geeklog $current </a></div><p>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br>Available Downloads</a></div>";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>Download Now<br/>Geeklog $current </a></div><br/>\n";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br/>Available Downloads</a></div>";
     printFooter($version, 6);
 }
 
 // ************************************
 // case 7 - Not a release
 // if the script did not exit yet, then it's not an official release, maybe an rc or a beta
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'>\n";
+    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
     echo "</td><td>\n";
     echo "<p>The current version of Geeklog is <strong>$current</strong> but it seems you are running Geeklog $version.</p>";
-    echo "<p>You are not running an official release of Geeklog, in fact it appears to be an old \"Release Candidate\" or \"Beta\" version.";
-    echo "<p>We strongly encourage you to upgrade to the current release, $current, as soon as possible.";
+    echo "<p>You are not running an official release of Geeklog, in fact it appears to be an old \"Release Candidate\" or \"Beta\" version.</p>";
+    echo "<p>We strongly encourage you to upgrade to the current release, $current, as soon as possible.</p>";
     echo "<p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
     echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br>Download Geeklog $current</a></div><p>";
-    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br>Available Downloads</a></div>";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/viewcat.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current</a></div><br/>";
+    echo "<div class='button'><a href='http://www.geeklog.net/filemgmt/index.php'>View All<br/>Available Downloads</a></div>";
     printFooter($version, 7);
 
 ?>
