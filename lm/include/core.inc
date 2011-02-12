@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.6                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | core.inc                                                                  |
 // |                                                                           |
 // | Update a core language file by merging it with english.php                |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2009 by the following authors:                         |
+// | Copyright (C) 2004-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -106,6 +106,7 @@ $ENG_configsections['Core'] = $LANG_configsections['Core'];
 $ENG_confignames['Core'] = $LANG_confignames['Core'];
 $ENG_configsubgroups['Core'] = $LANG_configsubgroups['Core'];
 $ENG_fs['Core'] = $LANG_fs['Core'];
+$ENG_tab['Core'] = $LANG_tab['Core'];
 $ENG_configselects['Core'] = $LANG_configselects['Core'];
 
 unset($LANG_MONTH);
@@ -215,6 +216,7 @@ mergeArrays($ENG_configsections['Core'], $LANG_configsections['Core'], "LANG_con
 mergeArrays($ENG_confignames['Core'], $LANG_confignames['Core'], "LANG_confignames['Core']", false);
 mergeArrays($ENG_configsubgroups['Core'], $LANG_configsubgroups['Core'], "LANG_configsubgroups['Core']", false);
 mergeArrays($ENG_fs['Core'], $LANG_fs['Core'], "LANG_fs['Core']", false);
+mergeArrays($ENG_tab['Core'], $LANG_tab['Core'], "LANG_tab['Core']", false);
 mergeArrays($ENG_configselects['Core'], $LANG_configselects['Core'], "LANG_configselects['Core']", false);
 
 ?>
