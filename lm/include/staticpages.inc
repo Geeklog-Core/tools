@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.6                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | staticpages.inc                                                           |
 // |                                                                           |
 // | Update a staticpages language file by merging it with english.php         |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2008-2009 by the following authors:                         |
+// | Copyright (C) 2008-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -41,6 +41,7 @@ $ENG_MSG3001 = $PLG_staticpages_MESSAGE3001;
 $ENG_configsections['staticpages'] = $LANG_configsections['staticpages'];
 $ENG_confignames['staticpages'] = $LANG_confignames['staticpages'];
 $ENG_configsubgroups['staticpages'] = $LANG_configsubgroups['staticpages'];
+$ENG_tab['staticpages'] = $LANG_tab['staticpages'];
 $ENG_fs['staticpages'] = $LANG_fs['staticpages'];
 $ENG_configselects['staticpages'] = $LANG_configselects['staticpages'];
 
@@ -75,6 +76,7 @@ echo "// Localization of the Admin Configuration UI";
 mergeArrays($ENG_configsections['staticpages'], $LANG_configsections['staticpages'], "LANG_configsections['staticpages']", false);
 mergeArrays($ENG_confignames['staticpages'], $LANG_confignames['staticpages'], "LANG_confignames['staticpages']", false);
 mergeArrays($ENG_configsubgroups['staticpages'], $LANG_configsubgroups['staticpages'], "LANG_configsubgroups['staticpages']", false);
+mergeArrays($ENG_tab['staticpages'], $LANG_tab['staticpages'], "LANG_tab['staticpages']", false);
 mergeArrays($ENG_fs['staticpages'], $LANG_fs['staticpages'], "LANG_fs['staticpages']", false);
 echo "\n";
 echo "// Note: entries 0, 1, 9, 12, 17 are the same as in \$LANG_configselects['Core']";

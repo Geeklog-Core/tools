@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.5                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | calendar.inc                                                              |
 // |                                                                           |
 // | Update a calendar language file by merging it with english.php            |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2008 by the following authors:                              |
+// | Copyright (C) 2008-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -28,8 +28,6 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
-// $Id: calendar.inc,v 1.1 2008/04/27 17:11:13 dhaun Exp $
 
 // save the english text strings
 $ENG_CAL_1 = $LANG_CAL_1;
@@ -48,6 +46,7 @@ $ENG_MSG3001 = $PLG_calendar_MESSAGE3001;
 $ENG_configsections['calendar'] = $LANG_configsections['calendar'];
 $ENG_confignames['calendar'] = $LANG_confignames['calendar'];
 $ENG_configsubgroups['calendar'] = $LANG_configsubgroups['calendar'];
+$ENG_tab['calendar'] = $LANG_tab['calendar'];
 $ENG_fs['calendar'] = $LANG_fs['calendar'];
 $ENG_configselects['calendar'] = $LANG_configselects['calendar'];
 
@@ -98,6 +97,7 @@ echo "// Localization of the Admin Configuration UI";
 mergeArrays($ENG_configsections['calendar'], $LANG_configsections['calendar'], "LANG_configsections['calendar']", false);
 mergeArrays($ENG_confignames['calendar'], $LANG_confignames['calendar'], "LANG_confignames['calendar']", false);
 mergeArrays($ENG_configsubgroups['calendar'], $LANG_configsubgroups['calendar'], "LANG_configsubgroups['calendar']", false);
+mergeArrays($ENG_tab['calendar'], $LANG_tab['calendar'], "LANG_tab['calendar']", false);
 mergeArrays($ENG_fs['calendar'], $LANG_fs['calendar'], "LANG_fs['calendar']", false);
 echo "\n";
 echo "// Note: entries 0, 1, 6, 9, 12 are the same as in \$LANG_configselects['Core']";

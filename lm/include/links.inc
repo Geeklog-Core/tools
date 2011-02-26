@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.5                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | links.inc                                                                 |
 // |                                                                           |
 // | Update a links language file by merging it with english.php               |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2008 by the following authors:                              |
+// | Copyright (C) 2008-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -28,8 +28,6 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
-// $Id: links.inc,v 1.2 2008/08/17 14:10:07 dhaun Exp $
 
 // save the english text strings
 $ENG_LINKS = $LANG_LINKS;
@@ -59,6 +57,7 @@ $ENG_MSG3001 = $PLG_links_MESSAGE3001;
 $ENG_configsections['links'] = $LANG_configsections['links'];
 $ENG_confignames['links'] = $LANG_confignames['links'];
 $ENG_configsubgroups['links'] = $LANG_configsubgroups['links'];
+$ENG_tab['links'] = $LANG_tab['links'];
 $ENG_fs['links'] = $LANG_fs['links'];
 $ENG_configselects['links'] = $LANG_configselects['links'];
 
@@ -115,6 +114,7 @@ echo "// Localization of the Admin Configuration UI";
 mergeArrays($ENG_configsections['links'], $LANG_configsections['links'], "LANG_configsections['links']", false);
 mergeArrays($ENG_confignames['links'], $LANG_confignames['links'], "LANG_confignames['links']", false);
 mergeArrays($ENG_configsubgroups['links'], $LANG_configsubgroups['links'], "LANG_configsubgroups['links']", false);
+mergeArrays($ENG_tab['links'], $LANG_tab['links'], "LANG_tab['links']", false);
 mergeArrays($ENG_fs['links'], $LANG_fs['links'], "LANG_fs['links']", false);
 echo "\n";
 echo "// Note: entries 0, 1, and 12 are the same as in \$LANG_configselects['Core']";

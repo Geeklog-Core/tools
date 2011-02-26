@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.5                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | spamx.inc                                                                 |
 // |                                                                           |
 // | Update a spamx language file by merging it with english.php               |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2008 by the following authors:                              |
+// | Copyright (C) 2008-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -28,8 +28,6 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
-// $Id: spamx.inc,v 1.1 2008/04/27 20:27:56 dhaun Exp $
 
 // save the english text strings
 $ENG_SX00 = $LANG_SX00;
@@ -41,6 +39,7 @@ $ENG_MSG3001 = $PLG_spamx_MESSAGE3001;
 $ENG_configsections['spamx'] = $LANG_configsections['spamx'];
 $ENG_confignames['spamx'] = $LANG_confignames['spamx'];
 $ENG_configsubgroups['spamx'] = $LANG_configsubgroups['spamx'];
+$ENG_tab['spamx'] = $LANG_tab['spamx'];
 $ENG_fs['spamx'] = $LANG_fs['spamx'];
 $ENG_configselects['spamx'] = $LANG_configselects['spamx'];
 
@@ -67,6 +66,7 @@ echo "// Localization of the Admin Configuration UI";
 mergeArrays($ENG_configsections['spamx'], $LANG_configsections['spamx'], "LANG_configsections['spamx']", false);
 mergeArrays($ENG_confignames['spamx'], $LANG_confignames['spamx'], "LANG_confignames['spamx']", false);
 mergeArrays($ENG_configsubgroups['spamx'], $LANG_configsubgroups['spamx'], "LANG_configsubgroups['spamx']", false);
+mergeArrays($ENG_tab['spamx'], $LANG_tab['spamx'], "LANG_tab['spamx']", false);
 mergeArrays($ENG_fs['spamx'], $LANG_fs['spamx'], "LANG_fs['spamx']", false);
 echo "\n";
 echo "// Note: entries 0, 1, 9, and 12 are the same as in \$LANG_configselects['Core']";
