@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.6                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | polls.inc                                                                 |
 // |                                                                           |
 // | Update a polls language file by merging it with english.php               |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2008-2009 by the following authors:                         |
+// | Copyright (C) 2008-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -41,6 +41,7 @@ $ENG_MSG3001 = $PLG_polls_MESSAGE3001;
 $ENG_configsections['polls'] = $LANG_configsections['polls'];
 $ENG_confignames['polls'] = $LANG_confignames['polls'];
 $ENG_configsubgroups['polls'] = $LANG_configsubgroups['polls'];
+$ENG_tab['polls'] = $LANG_tab['polls'];
 $ENG_fs['polls'] = $LANG_fs['polls'];
 $ENG_configselects['polls'] = $LANG_configselects['polls'];
 
@@ -76,6 +77,7 @@ echo "// Localization of the Admin Configuration UI";
 mergeArrays($ENG_configsections['polls'], $LANG_configsections['polls'], "LANG_configsections['polls']", false);
 mergeArrays($ENG_confignames['polls'], $LANG_confignames['polls'], "LANG_confignames['polls']", false);
 mergeArrays($ENG_configsubgroups['polls'], $LANG_configsubgroups['polls'], "LANG_configsubgroups['polls']", false);
+mergeArrays($ENG_tab['polls'], $LANG_tab['polls'], "LANG_tab['polls']", false);
 mergeArrays($ENG_fs['polls'], $LANG_fs['polls'], "LANG_fs['polls']", false);
 echo "\n";
 echo "// Note: entries 0, 1, and 12 are the same as in \$LANG_configselects['Core']";

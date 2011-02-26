@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.6                                                               |
+// | Geeklog 1.8                                                               |
 // +---------------------------------------------------------------------------+
 // | xmlsitemap.inc                                                            |
 // |                                                                           |
 // | Update a xmlsitemap language file by merging it with english.php          |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2009 by the following authors:                              |
+// | Copyright (C) 2009-2011 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -35,6 +35,7 @@ $ENG_XMLSMAP = $LANG_XMLSMAP;
 $ENG_configsections['xmlsitemap'] = $LANG_configsections['xmlsitemap'];
 $ENG_confignames['xmlsitemap'] = $LANG_confignames['xmlsitemap'];
 $ENG_configsubgroups['xmlsitemap'] = $LANG_configsubgroups['xmlsitemap'];
+$ENG_tab['xmlsitemap'] = $LANG_tab['xmlsitemap'];
 $ENG_fs['xmlsitemap'] = $LANG_fs['xmlsitemap'];
 $ENG_configselects['xmlsitemap'] = $LANG_configselects['xmlsitemap'];
 
@@ -51,6 +52,7 @@ echo "// Localization of the Admin Configuration UI";
 mergeArrays($ENG_configsections['xmlsitemap'], $LANG_configsections['xmlsitemap'], "LANG_configsections['xmlsitemap']", false);
 mergeArrays($ENG_confignames['xmlsitemap'], $LANG_confignames['xmlsitemap'], "LANG_confignames['xmlsitemap']", false);
 mergeArrays($ENG_configsubgroups['xmlsitemap'], $LANG_configsubgroups['xmlsitemap'], "LANG_configsubgroups['xmlsitemap']", false);
+mergeArrays($ENG_tab['xmlsitemap'], $LANG_tab['xmlsitemap'], "LANG_tab['xmlsitemap']", false);
 mergeArrays($ENG_fs['xmlsitemap'], $LANG_fs['xmlsitemap'], "LANG_fs['xmlsitemap']", false);
 echo "\n";
 echo "// Note: entries 0, 1, 9, and 12 are the same as in \$LANG_configselects['Core']";
