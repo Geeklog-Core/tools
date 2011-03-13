@@ -108,6 +108,7 @@ $ENG_configsubgroups['Core'] = $LANG_configsubgroups['Core'];
 $ENG_fs['Core'] = $LANG_fs['Core'];
 $ENG_tab['Core'] = $LANG_tab['Core'];
 $ENG_configselects['Core'] = $LANG_configselects['Core'];
+$ENGVA = $LANG_VALIDATION;
 
 unset($LANG_MONTH);
 unset($LANG_WEEK);
@@ -218,5 +219,8 @@ mergeArrays($ENG_configsubgroups['Core'], $LANG_configsubgroups['Core'], "LANG_c
 mergeArrays($ENG_fs['Core'], $LANG_fs['Core'], "LANG_fs['Core']", false);
 mergeArrays($ENG_tab['Core'], $LANG_tab['Core'], "LANG_tab['Core']", false);
 mergeArrays($ENG_configselects['Core'], $LANG_configselects['Core'], "LANG_configselects['Core']", false);
+
+echo "\n";
+mergeArrays($ENGVA,  $LANG_VALIDATION, 'LANG_VALIDATION', "Localization of validation error messages", false);
 
 ?>
