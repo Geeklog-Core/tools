@@ -31,23 +31,7 @@ tar xfz geeklog-pear.tar.gz
 rm -f geeklog-pear.tar.gz
 cd ../..
 
-# remove unused files
-
-# Blaine's test file ...
-rm -f public_html/blaine.php
-
-# don't ship MT-Blacklist modules any more
-rm -f plugins/spamx/MTBlackList.Examine.class.php
-rm -f plugins/spamx/Import.Admin.class.php
-# only used by the Import class
-rm -rf plugins/spamx/magpierss
-rm -f plugins/spamx/rss.inc.php
-# you'd need to set up a honeypot to use it
-rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
-# about time we clean up the install directory ...
-rm -f public_html/admin/install/addindex.php
-
-# old upgrade files (from pre-1.3 versions)
+# don't ship old upgrade files (from pre-1.3 versions)
 rm -f sql/updates/*.sql
 rm -f sql/updates/1.2.5-1_to_1.3.NOTES
 
