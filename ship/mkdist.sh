@@ -47,19 +47,10 @@ rm -rf $NEWVERSION/system/pear/PHP
 
 cd $NEWVERSION
 
-# Blaine's test file ...
-rm -f public_html/blaine.php
+# don't ship Professional CSS theme yet
+rm -rf public_html/layout/professional_css
 
-# don't ship MT-Blacklist modules any more
-rm -f plugins/spamx/MTBlackList.Examine.class.php
-rm -f plugins/spamx/Import.Admin.class.php
-# only used by the Import class
-rm -rf plugins/spamx/magpierss
-rm -f plugins/spamx/rss.inc.php
-# you'd need to set up a honeypot to use it
-rm -f plugins/spamx/ProjectHoneyPot.Examine.class.php
-
-# old upgrade files (from pre-1.3 versions)
+# don't ship old upgrade files (from pre-1.3 versions)
 rm -f sql/updates/*.sql
 rm -f sql/updates/1.2.5-1_to_1.3.NOTES
 
@@ -71,13 +62,6 @@ rm -f plugins/spamx/buildpackage.php
 rm -f plugins/staticpages/buildpackage.php
 rm -rf system/build
 
-rm -rf pdfs
-rm -f public_html/pdfgenerator.php
-rm -rf public_html/layout/professional/pdfgenerator
-
-# about time we clean up the install directory ...
-rm -f public_html/admin/install/addindex.php
-
 mv db-config.php.dist db-config.php
 mv public_html/siteconfig.php.dist public_html/siteconfig.php
 
@@ -85,7 +69,6 @@ mv public_html/siteconfig.php.dist public_html/siteconfig.php
 mv system/lib-custom.php.dist system/lib-custom.php
 
 find . -type f -name '.*' -exec rm \{\} \;
-#find . -name CVS -exec rm -r \{\} \; 2>/dev/null
 
 # if on a Mac, check that we don't have any of those pesky xattributes set
 xattr=`which xattr`
@@ -106,7 +89,6 @@ chmod 775 backups
 chmod 775 data
 chmod 775 logs
 chmod 664 logs/*log
-# chmod 775 pdfs
 chmod 775 public_html/backend
 chmod 644 public_html/backend/*.rss
 chmod 775 public_html/images/articles
@@ -119,7 +101,6 @@ chmod 664 public_html/images/userphotos/*
 cd ..
 
 diff -b -B --brief --recursive -N $OLDVERSION $NEWVERSION | grep -v 'system.pear' | cut -f 4 -d' ' >changed-files
-# diff -b -B --brief --recursive -N $OLDVERSION $NEWVERSION | grep -v layout | grep -v docs | cut -f 4 -d' ' >changed-files
 mv changed-files $NEWVERSION/public_html/docs/
 
 if [ -f $NEWVERSION.tar ]; then
