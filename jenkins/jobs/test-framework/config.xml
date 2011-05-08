@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.mantis.MantisProjectProperty>
+      <siteName>http://project.geeklog.net/tracking/</siteName>
+      <pattern>&quot;bug #%ID%&quot;, &quot;feature request #%ID%&quot;</pattern>
+      <regexpPattern>
+        <pattern>(?&lt;=&quot;bug #)(\d+)(?=&quot;\, &quot;feature request #)(\d+)(?=&quot;)</pattern>
+        <flags>0</flags>
+      </regexpPattern>
+      <linkEnabled>true</linkEnabled>
+    </hudson.plugins.mantis.MantisProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.mercurial.MercurialSCM">
+    <installation>(Default)</installation>
+    <source>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/test-framework/</source>
+    <modules></modules>
+    <clean>false</clean>
+    <forest>false</forest>
+    <browser class="hudson.plugins.mercurial.browser.HgWeb">
+      <url>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/test-framework/</url>
+    </browser>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector"/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cd $WORKSPACE
+
+if [ ! -e testpackage/tst.class.php ]; then
+
+  cd ..
+  WS_ROOT=`pwd`
+  cd $WORKSPACE
+
+  # set paths to geeklog, public_html, and testpackage
+  cat testpackage/tst.class.php.dist | sed &quot;s|root =.*|root = &apos;$WS_ROOT/geeklog/&apos;;|&quot; | sed &quot;s|public =.*|public = &apos;$WS_ROOT/geeklog/public_html/&apos;;|&quot; | sed &quot;s|tests =.*|tests = &apos;$WS_ROOT/test-framework/testpackage/&apos;;|&quot; &gt; testpackage/tst.class.php
+
+fi
+
+if [ ! -e tests/tst.class.php ]; then
+
+  # set path back to testpackage/tst.class.php
+  sed &quot;s|^require_once.*|require_once &apos;$WORKSPACE/testpackage/tst.class.php&apos;;|&quot; &lt; tests/tst.class.php.dist &gt; tests/tst.class.php
+
+fi
+
+if [ ! -d ../geeklog/public_html/tests ]; then
+  cp -r -p tests ../geeklog/public_html/
+fi
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>cd $WORKSPACE
+
+mkdir -p results
+rm -f results/*.xml
+
+cd ..
+cd geeklog
+cd public_html
+cd tests
+
+rm -f phpunit.xml
+
+echo &quot;&lt;phpunit&gt;&quot; &gt; phpunit.xml
+echo &quot;  &lt;testsuites&gt;&quot; &gt;&gt; phpunit.xml
+echo &apos;    &lt;testsuite name=&quot;geeklog_system&quot;&gt;&apos; &gt;&gt; phpunit.xml
+echo &quot;      &lt;directory&gt;$WORKSPACE/testpackage/suite/geeklog/system&lt;/directory&gt;&quot; &gt;&gt; phpunit.xml
+echo &quot;    &lt;/testsuite&gt;&quot; &gt;&gt; phpunit.xml
+echo &quot;  &lt;/testsuites&gt;&quot; &gt;&gt; phpunit.xml
+echo &quot;&lt;/phpunit&gt;&quot; &gt;&gt; phpunit.xml
+
+phpunit --verbose --log-junit $WORKSPACE/results/phpunit.xml
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <com.thalesgroup.hudson.plugins.xunit.XUnitPublisher>
+      <types>
+        <com.thalesgroup.dtkit.metrics.hudson.model.PHPUnitJunitHudsonTestType>
+          <pattern>results/*.xml</pattern>
+          <faildedIfNotNew>true</faildedIfNotNew>
+          <deleteOutputFiles>true</deleteOutputFiles>
+        </com.thalesgroup.dtkit.metrics.hudson.model.PHPUnitJunitHudsonTestType>
+      </types>
+    </com.thalesgroup.hudson.plugins.xunit.XUnitPublisher>
+    <hudson.plugins.emailext.ExtendedEmailPublisher>
+      <recipientList>dirk@haun-online.de</recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+          <email>
+            <recipientList></recipientList>
+            <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+            <body>$PROJECT_DEFAULT_CONTENT</body>
+            <sendToDevelopers>false</sendToDevelopers>
+            <includeCulprits>false</includeCulprits>
+            <sendToRecipientList>true</sendToRecipientList>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+        <hudson.plugins.emailext.plugins.trigger.FixedTrigger>
+          <email>
+            <recipientList></recipientList>
+            <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+            <body>$PROJECT_DEFAULT_CONTENT</body>
+            <sendToDevelopers>false</sendToDevelopers>
+            <includeCulprits>false</includeCulprits>
+            <sendToRecipientList>true</sendToRecipientList>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.FixedTrigger>
+      </configuredTriggers>
+      <contentType>text/plain</contentType>
+      <defaultSubject>$DEFAULT_SUBJECT</defaultSubject>
+      <defaultContent>$DEFAULT_CONTENT</defaultContent>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
+  </publishers>
+  <buildWrappers/>
+  <customWorkspace>customworkspace/test-framework</customWorkspace>
+</project>

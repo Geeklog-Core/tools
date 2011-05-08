@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson>
+  <version>1.410</version>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+    <permission>hudson.model.Computer.Configure:dhaun</permission>
+    <permission>hudson.model.Computer.Delete:dhaun</permission>
+    <permission>hudson.model.Hudson.Administer:dhaun</permission>
+    <permission>hudson.model.Hudson.Read:anonymous</permission>
+    <permission>hudson.model.Hudson.Read:dhaun</permission>
+    <permission>hudson.model.Item.Build:dhaun</permission>
+    <permission>hudson.model.Item.Configure:dhaun</permission>
+    <permission>hudson.model.Item.Create:dhaun</permission>
+    <permission>hudson.model.Item.Delete:dhaun</permission>
+    <permission>hudson.model.Item.Read:anonymous</permission>
+    <permission>hudson.model.Item.Read:dhaun</permission>
+    <permission>hudson.model.Item.Workspace:dhaun</permission>
+    <permission>hudson.model.Run.Delete:dhaun</permission>
+    <permission>hudson.model.Run.Update:dhaun</permission>
+    <permission>hudson.model.View.Configure:dhaun</permission>
+    <permission>hudson.model.View.Create:dhaun</permission>
+    <permission>hudson.model.View.Delete:dhaun</permission>
+    <permission>hudson.scm.SCM.Tag:dhaun</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>false</disableSignup>
+  </securityRealm>
+  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter"/>
+  <jdks/>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds/>
+  <slaves/>
+  <quietPeriod>5</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>All</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+    </hudson.model.AllView>
+    <hudson.plugins.iphoneview.IPhoneView>
+      <owner class="hudson" reference="../../.."/>
+      <name>i</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <jobNames class="tree-set">
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>geeklog</string>
+        <string>test-framework</string>
+      </jobNames>
+      <jobFilters/>
+      <columns/>
+    </hudson.plugins.iphoneview.IPhoneView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Geeklog</name>
+      <description>Geeklog Unit Tests</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames class="tree-set">
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.iphoneview.IPhoneView/jobNames/comparator"/>
+        <string>geeklog</string>
+        <string>geeklog-nightly</string>
+        <string>test-framework</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Akeda</name>
+      <description>Unit Tests for Akeda Bagus&apos; GSoC 2010 project</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <jobNames class="tree-set">
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.iphoneview.IPhoneView/jobNames/comparator"/>
+        <string>gsoc-2010-abagus</string>
+        <string>test-framework-abagus</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+    </listView>
+  </views>
+  <primaryView>Geeklog</primaryView>
+  <slaveAgentPort>0</slaveAgentPort>
+  <label></label>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
+    <PROXY__HEADER>X-Forwarded-For</PROXY__HEADER>
+  </crumbIssuer>
+  <nodeProperties/>
+  <globalNodeProperties/>
+  <disabledAdministrativeMonitors/>
+</hudson>

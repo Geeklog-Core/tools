@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.mantis.MantisProjectProperty>
+      <siteName>http://project.geeklog.net/tracking/</siteName>
+      <pattern>&quot;bug #%ID%&quot;, &quot;feature request #%ID%&quot;</pattern>
+      <regexpPattern>
+        <pattern>(?&lt;=&quot;bug #)(\d+)(?=&quot;\, &quot;feature request #)(\d+)(?=&quot;)</pattern>
+        <flags>0</flags>
+      </regexpPattern>
+      <linkEnabled>true</linkEnabled>
+    </hudson.plugins.mantis.MantisProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.mercurial.MercurialSCM">
+    <installation>(Default)</installation>
+    <source>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/test-framework-abagus/</source>
+    <modules></modules>
+    <clean>false</clean>
+    <forest>false</forest>
+    <browser class="hudson.plugins.mercurial.browser.HgWeb">
+      <url>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/test-framework-abagus/</url>
+    </browser>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector">
+    <hudson.triggers.SCMTrigger>
+      <spec>20,50 * * * *</spec>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cd $WORKSPACE
+
+if [ ! -e testpackage/tst.class.php ]; then
+
+  cd ..
+  WS_ROOT=`pwd`
+  cd $WORKSPACE
+
+  # set paths to geeklog, public_html, and testpackage
+  cat testpackage/tst.class.php.dist | sed &quot;s|root =.*|root = &apos;$WS_ROOT/gsoc-2010-abagus/&apos;;|&quot; | sed &quot;s|public =.*|public = &apos;$WS_ROOT/gsoc-2010-abagus/public_html/&apos;;|&quot; | sed &quot;s|tests =.*|tests = &apos;$WS_ROOT/test-framework-abagus/testpackage/&apos;;|&quot; &gt; testpackage/tst.class.php
+
+fi
+
+if [ ! -e tests/tst.class.php ]; then
+
+  # set path back to testpackage/tst.class.php
+  sed &quot;s|^require_once.*|require_once &apos;$WORKSPACE/testpackage/tst.class.php&apos;;|&quot; &lt; tests/tst.class.php.dist &gt; tests/tst.class.php
+
+fi
+
+if [ ! -d ../gsoc-2010-abagus/public_html/tests ]; then
+  cp -r -p tests ../gsoc-2010-abagus/public_html/
+fi
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>cd $WORKSPACE
+
+mkdir -p results
+rm -f results/*.xml
+
+cd ..
+cd gsoc-2010-abagus
+cd public_html
+cd tests
+
+rm -f phpunit.xml
+
+echo &quot;&lt;phpunit&gt;&quot; &gt; phpunit.xml
+echo &quot;  &lt;testsuites&gt;&quot; &gt;&gt; phpunit.xml
+echo &apos;    &lt;testsuite name=&quot;geeklog_system&quot;&gt;&apos; &gt;&gt; phpunit.xml
+echo &quot;      &lt;directory&gt;$WORKSPACE/testpackage/suite/geeklog/system&lt;/directory&gt;&quot; &gt;&gt; phpunit.xml
+echo &quot;    &lt;/testsuite&gt;&quot; &gt;&gt; phpunit.xml
+echo &quot;  &lt;/testsuites&gt;&quot; &gt;&gt; phpunit.xml
+echo &quot;&lt;/phpunit&gt;&quot; &gt;&gt; phpunit.xml
+
+phpunit --verbose --log-junit $WORKSPACE/results/phpunit.xml
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <com.thalesgroup.hudson.plugins.xunit.XUnitPublisher>
+      <types>
+        <com.thalesgroup.dtkit.metrics.hudson.model.PHPUnitHudsonTestType>
+          <pattern>results/*.xml</pattern>
+          <faildedIfNotNew>true</faildedIfNotNew>
+          <deleteOutputFiles>true</deleteOutputFiles>
+        </com.thalesgroup.dtkit.metrics.hudson.model.PHPUnitHudsonTestType>
+      </types>
+    </com.thalesgroup.hudson.plugins.xunit.XUnitPublisher>
+  </publishers>
+  <buildWrappers/>
+  <customWorkspace>customworkspace2/test-framework-abagus</customWorkspace>
+</project>
