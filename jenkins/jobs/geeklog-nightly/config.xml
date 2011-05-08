@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Creates a &quot;nightly&quot; tarball of the current state of the Geeklog repository.&#xd;
+&#xd;
+The tarball is actually created hourly now (but only if there were any changes in the repository during the last hour).</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.mantis.MantisProjectProperty>
+      <siteName>http://project.geeklog.net/tracking/</siteName>
+      <pattern>#%ID%</pattern>
+      <regexpPattern>
+        <pattern>(?&lt;=#)(\d+)(?=)</pattern>
+        <flags>0</flags>
+      </regexpPattern>
+      <linkEnabled>true</linkEnabled>
+    </hudson.plugins.mantis.MantisProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.mercurial.MercurialSCM">
+    <installation>(Default)</installation>
+    <source>/cvsroot/hg/geeklog</source>
+    <modules></modules>
+    <branch>HEAD</branch>
+    <clean>false</clean>
+    <forest>false</forest>
+    <browser class="hudson.plugins.mercurial.browser.HgWeb">
+      <url>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/geeklog/</url>
+    </browser>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector">
+    <hudson.triggers.SCMTrigger>
+      <spec>0 * * * *</spec>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>customworkspace/package</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cd $WORKSPACE
+
+cd ..
+if [ -d geeklog-nightly ]; then
+  rm -rf geeklog-nightly
+  sleep 10
+fi
+
+hg clone package geeklog-nightly
+
+cd geeklog-nightly
+rm -rf .hg .hgignore .hgtags
+
+# add required PEAR classes
+cd system/pear
+cp /usr/home/geeklog2/public_html/www/nightly/geeklog-pear.tar.gz .
+tar xf geeklog-pear.tar.gz
+rm -f geeklog-pear.tar.gz
+cd ../..
+
+# don&apos;t ship Professional CSS theme yet
+# rm -rf public_html/layout/professional_css
+
+# don&apos;t ship old upgrade files (from pre-1.3 versions)
+rm -f sql/updates/*.sql
+rm -f sql/updates/1.2.5-1_to_1.3.NOTES
+
+# PEAR buildpackage files
+rm -f plugins/calendar/buildpackage.php
+rm -f plugins/links/buildpackage.php
+rm -f plugins/polls/buildpackage.php
+rm -f plugins/spamx/buildpackage.php
+rm -f plugins/staticpages/buildpackage.php
+rm -rf system/build
+
+mv db-config.php.dist db-config.php
+mv public_html/siteconfig.php.dist public_html/siteconfig.php
+
+# lib-custom.php.dist is the actual lib-custom.php file now ...
+mv system/lib-custom.php.dist system/lib-custom.php
+
+find . -type f -exec chmod a-x \{\} \;
+chmod a+x emailgeeklogstories
+
+# set the default permissions
+chmod 775 backups
+chmod 775 data
+chmod 775 logs
+chmod 664 logs/*log
+chmod 775 public_html/backend
+chmod 644 public_html/backend/*.rss
+chmod 775 public_html/images/articles
+chmod 664 public_html/images/articles/*
+chmod 775 public_html/images/topics
+chmod 664 public_html/images/topics/*
+chmod 775 public_html/images/userphotos
+chmod 664 public_html/images/userphotos/*
+
+cd ..
+rm -f $WORKSPACE/geeklog-nightly.tar $WORKSPACE/geeklog-nightly.tar.gz
+tar cf $WORKSPACE/geeklog-nightly.tar geeklog-nightly
+gzip $WORKSPACE/geeklog-nightly.tar
+
+cp $WORKSPACE/geeklog-nightly.tar.gz /usr/home/geeklog2/public_html/www/nightly/
+
+rm -rf geeklog-nightly
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>geeklog-nightly.tar.gz</artifacts>
+      <latestOnly>true</latestOnly>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.plugins.claim.ClaimPublisher/>
+  </publishers>
+  <buildWrappers/>
+</project>
