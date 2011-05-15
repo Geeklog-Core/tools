@@ -41,8 +41,8 @@ The tarball is actually created hourly now (but only if there were any changes i
   <builders>
     <hudson.tasks.Shell>
       <command>cd $WORKSPACE
-
 cd ..
+
 if [ -d geeklog-nightly ]; then
   rm -rf geeklog-nightly
   sleep 10
@@ -98,12 +98,15 @@ chmod 664 public_html/images/topics/*
 chmod 775 public_html/images/userphotos
 chmod 664 public_html/images/userphotos/*
 
+cd $WORKSPACE
 cd ..
-rm -f $WORKSPACE/geeklog-nightly.tar $WORKSPACE/geeklog-nightly.tar.gz
-tar cf $WORKSPACE/geeklog-nightly.tar geeklog-nightly
-gzip $WORKSPACE/geeklog-nightly.tar
 
-cp $WORKSPACE/geeklog-nightly.tar.gz /usr/home/geeklog2/public_html/www/nightly/
+rm -f geeklog-nightly.tar geeklog-nightly.tar.gz
+tar cf geeklog-nightly.tar geeklog-nightly
+gzip geeklog-nightly.tar
+
+cp geeklog-nightly.tar.gz /usr/home/geeklog2/public_html/www/nightly/
+mv geeklog-nightly.tar.gz $WORKSPACE/
 
 rm -rf geeklog-nightly
 </command>
