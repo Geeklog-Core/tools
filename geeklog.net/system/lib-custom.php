@@ -385,7 +385,7 @@ function phpblock_current_versions()
 
     $output = '<p><a href="' . $_CONF['site_url'] . '/filemgmt/viewcat.php?cid=8"><img src="' . $_CONF['site_url'] . '/images/buttons/download.png" width="134" height="49" border="0" align="center" alt="[Download]"></a><br' . XHTML . ">\n";
 
-    $result = DB_query("SELECT version FROM {$_FM_TABLES['filemgmt_filedetail']} WHERE cid = 8 ORDER BY date ASC LIMIT 2");
+    $result = DB_query("SELECT version FROM {$_FM_TABLES['filemgmt_filedetail']} WHERE cid = 8 ORDER BY date DESC LIMIT 2");
     $num_versions = DB_numRows($result);
 
     $stable = '';
@@ -401,12 +401,14 @@ function phpblock_current_versions()
         }
 
         if (empty($reltype) && empty($stable)) {
-            $output .= "Current version: <strong title=\"Recommended Version\">Geeklog {$A['version']}</strong></p>\n";
-        } else {
-            $output .= '<p>Also available:<br' . XHTML . ">\n"
-                    .  "<b$reltype>Geeklog " . $A['version'] . "</b></p>\n";
+            $stable .= "Current version: <strong title=\"Recommended Version\">Geeklog {$A['version']}</strong></p>\n";
+        } elseif (! empty($reltype)) {
+            $alternate .= '<p>Also available:<br' . XHTML . ">\n"
+                       .  "<b$reltype>Geeklog " . $A['version'] . "</b></p>\n";
         }
     }
+
+    $output .= $stable . $alternate;
 
     return $output;
 }
