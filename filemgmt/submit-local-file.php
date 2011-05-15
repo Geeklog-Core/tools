@@ -85,7 +85,9 @@ function submit_file($submitter, $filename, $title, $desc, $version, $homepage, 
         $tmpfilename = $tmpfilename . '.' . $fileExtension;
     }
 
-    rename($filename, $filemgmt_FileStore . 'tmp/' . $tmpfilename);
+    // would have preferred rename (i.e. move), but ran into file permission
+    // problems on www.geeklog.net ...
+    copy($filename, $filemgmt_FileStore . 'tmp/' . $tmpfilename);
 
     $logourl = '';
 
