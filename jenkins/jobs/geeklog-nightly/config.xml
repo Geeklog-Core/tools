@@ -33,7 +33,7 @@ The tarball is actually created hourly now (but only if there were any changes i
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers class="vector">
     <hudson.triggers.SCMTrigger>
-      <spec>0 * * * *</spec>
+      <spec>1 * * * *</spec>
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
