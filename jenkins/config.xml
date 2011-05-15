@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
-  <version>1.410</version>
+  <version>1.411</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -66,6 +66,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.iphoneview.IPhoneView/jobNames/comparator"/>
         <string>geeklog</string>
         <string>geeklog-nightly</string>
+        <string>geeklog-release</string>
         <string>test-framework</string>
       </jobNames>
       <jobFilters/>

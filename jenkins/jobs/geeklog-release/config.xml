@@ -46,10 +46,10 @@ distroot=&apos;/usr/home/geeklog2/public_html/www/nightly&apos;
 cd $WORKSPACE
 
 if [ ! -f known-tags ]; then
-  cp .hgtags known-tags
+  hg tags &gt; known-tags
 fi
 
-tag=`diff known-tags .hgtags | grep &apos;&gt;&apos; | cut -d&apos; &apos; -f3 | grep &apos;geeklog_&apos;`
+tag=`hg tags | diff known-tags - | grep -v tip | grep &apos;&gt;&apos; | cut -d&apos; &apos; -f2 | grep &apos;geeklog_&apos; | head -1`
 
 if [ &quot;$tag&quot; ]; then
 
@@ -68,8 +68,14 @@ if [ &quot;$tag&quot; ]; then
     exit 1
   fi
 
-  prev=`grep -B 1 $tag .hgtags | head -1 | cut -d&apos; &apos; -f2`
-  prevrel=`echo $prev | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
+  # find previous release tag
+  # &quot;_stable&quot; -&gt; &quot;s&quot; to make it sort between rc1 and sr1
+  xtag=`echo $tag | sed &apos;s/_stable/s/&apos;`
+  prev=`hg tags | cut -f1 -d&apos; &apos; | sed &apos;s/_stable/s/&apos; | sort | grep -B 1 $xtag | head -1`
+  prevrel=`echo $prev | sed &apos;s/s$/s/&apos; | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
+
+  # prev=`grep -B 1 $tag .hgtags | head -1 | cut -d&apos; &apos; -f2`
+  # prevrel=`echo $prev | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
 
   # check for too many dots, i.e. fix 1.7.2.1 -&gt; 1.7.2-1
   relcheck=`echo $prevrel | cut -d&apos;.&apos; -f4`
@@ -175,6 +181,7 @@ if [ &quot;$tag&quot; ]; then
   gzip --best $rel.tar
 
   md5 $rel.tar.gz | cut -f2 -d&apos;=&apos; | sed &apos;s/ //g&apos; &gt; $rel.tar.gz.md5
+  checksum=`md5 $rel.tar.gz | cut -f2 -d&apos;=&apos; | sed &apos;s/ //g&apos; | tr -d &apos;\012&apos;`
 
   # make tarball available for download
   cp $rel.tar.gz* $distroot/
@@ -193,12 +200,16 @@ if [ &quot;$tag&quot; ]; then
     echo &quot;Sent $rel.tar.gz to www.geeklog.net&quot;
   fi
 
+  sleep 2
+
+  wget -U Geeklog/Jenkins -q -O /dev/null &quot;http://www.geeklog.net/filemgmt/submit-local-file.php?action=geeklog_release&amp;filename=$rel.tar.gz&amp;md5=$checksum&quot;
+
   # cleanup
   rm -rf $rel $prevrel
   rm -f $rel.tar $rel.tar.gz $rel.tar.gz.md5 $prevrel.tar.gz
 
   cd $WORKSPACE
-  cp .hgtags known-tags
+  hg tags &gt; known-tags
 
 else
 
@@ -217,6 +228,25 @@ fi
       <targets>*.tar.gz</targets>
       <recordBuildArtifacts>true</recordBuildArtifacts>
     </hudson.tasks.Fingerprinter>
+    <hudson.plugins.emailext.ExtendedEmailPublisher>
+      <recipientList>dirk@haun-online.de</recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+          <email>
+            <recipientList></recipientList>
+            <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+            <body>$PROJECT_DEFAULT_CONTENT</body>
+            <sendToDevelopers>false</sendToDevelopers>
+            <sendToRequester>false</sendToRequester>
+            <includeCulprits>false</includeCulprits>
+            <sendToRecipientList>true</sendToRecipientList>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+      </configuredTriggers>
+      <contentType>text/plain</contentType>
+      <defaultSubject>$DEFAULT_SUBJECT</defaultSubject>
+      <defaultContent>$DEFAULT_CONTENT</defaultContent>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
     <hudson.plugins.claim.ClaimPublisher/>
   </publishers>
   <buildWrappers/>

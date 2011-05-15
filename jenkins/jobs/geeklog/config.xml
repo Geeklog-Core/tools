@@ -27,6 +27,7 @@
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers class="vector">
     <hudson.triggers.SCMTrigger>
@@ -34,6 +35,7 @@
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>customworkspace/geeklog</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
       <command>cd $WORKSPACE
@@ -61,7 +63,7 @@ fi
         <color>BLUE</color>
       </threshold>
     </hudson.tasks.BuildTrigger>
+    <hudson.plugins.claim.ClaimPublisher/>
   </publishers>
   <buildWrappers/>
-  <customWorkspace>customworkspace/geeklog</customWorkspace>
 </project>
