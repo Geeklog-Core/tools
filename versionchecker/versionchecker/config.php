@@ -28,7 +28,8 @@ $releases = array (
     array('version' => '1.7.0',      'date' => '01-Jul-10', 'supported' => true,  'upgrade' => ''),
     array('version' => '1.7.1',      'date' => '31-Oct-10', 'supported' => true,  'upgrade' => ''),
     array('version' => '1.7.1sr1',   'date' => '02-Jan-11', 'supported' => true,  'upgrade' => ''),
-    array('version' => '1.7.2',      'date' => '20-Feb-11', 'supported' => true,  'upgrade' => '')
+    array('version' => '1.7.2',      'date' => '20-Feb-11', 'supported' => true,  'upgrade' => ''),
+    array('version' => '1.8.0',      'date' => '12-Jun-11', 'supported' => true,  'upgrade' => '')
 );
 
 // Current stable version
