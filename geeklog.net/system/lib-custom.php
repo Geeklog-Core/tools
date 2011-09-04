@@ -385,7 +385,7 @@ function phpblock_current_versions()
 
     $output = '<p><a href="' . $_CONF['site_url'] . '/filemgmt/viewcat.php?cid=8"><img src="' . $_CONF['site_url'] . '/images/buttons/download.png" width="134" height="49" border="0" align="center" alt="[Download]"></a><br' . XHTML . ">\n";
 
-    $result = DB_query("SELECT version FROM {$_FM_TABLES['filemgmt_filedetail']} WHERE cid = 8 ORDER BY date DESC LIMIT 2");
+    $result = DB_query("SELECT version FROM {$_FM_TABLES['filemgmt_filedetail']} WHERE (cid = 8) AND (status = 1) ORDER BY date DESC LIMIT 2");
     $num_versions = DB_numRows($result);
 
     $stable = '';
