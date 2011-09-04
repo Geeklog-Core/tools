@@ -72,7 +72,7 @@ if [ &quot;$tag&quot; ]; then
   # &quot;_stable&quot; -&gt; &quot;s&quot; to make it sort between rc1 and sr1
   xtag=`echo $tag | sed &apos;s/_stable/s/&apos;`
   prev=`hg tags | cut -f1 -d&apos; &apos; | sed &apos;s/_stable/s/&apos; | sort | grep -B 1 $xtag | head -1`
-  prevrel=`echo $prev | sed &apos;s/s$/s/&apos; | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
+  prevrel=`echo $prev | sed &apos;s/s$//&apos; | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
 
   # prev=`grep -B 1 $tag .hgtags | head -1 | cut -d&apos; &apos; -f2`
   # prevrel=`echo $prev | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
