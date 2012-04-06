@@ -1,0 +1,37 @@
+
+http://project.geeklog.net/tracking/api/soap/mantisconnect.php
+
+for the API description and
+
+http://project.geeklog.net/tracking/api/soap/mantisconnect.php?wsdl
+
+for the WSDL
+
+
+Install wsdl2php (PEAR package):
+http://www.urdalen.no/wsdl2php/index.php
+
+call:
+
+wsdl2php http://project.geeklog.net/tracking/api/soap/mantisconnect.php?wsdl
+
+Some of the methods in MantisConnect.php may need correction. Specifically,
+remove all occurences of "integer" from the function declaration of
+mc_project_get_issues()
+
+
+listchanges.php can be called like so:
+
+  php php listchanges.php --user=yourname --password=yourpassword
+
+Optional parameters:
+
+  --version=1.2.3    (default: 2.0.0)
+    Version number for which to get the changes.
+
+  --per-page=33      (default: 25)
+    Issues requested per SOAP call. Must be < 50 or thereabouts ...
+
+  --project=Nettools (default: Geeklog)
+    Name of the project (in Mantis) for which to get the list of changes.
+
