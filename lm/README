@@ -1,4 +1,4 @@
-lm.php v1.0.3
+lm.php v1.0.5
 
 This script merges a Geeklog (foreign) language file with the english.php
 language file, so that new strings added to english.php are automatically added
@@ -44,7 +44,7 @@ You can subscribe to the geeklog-translations mailing list at
 
     http://lists.geeklog.net/mailman/listinfo/geeklog-translations
 
-Copyright (C) 2004-2009 by Dirk Haun, <dirk AT haun-online DOT de>,
+Copyright (C) 2004-2013 by Dirk Haun, <dirk AT haun-online DOT de>,
 and released under the GNU General Public License v2.
 
 
@@ -62,4 +62,5 @@ History
 1.0.1 fixed handling of <br> tags and fixed accidentally created <brXHTML> tags
 1.0.2 added support for install script language files
 1.0.3 added $LANG_SECTEST and the XMLSitemap plugin
-
+1.0.4 added $LANG_LOGVIEW
+1.0.5 added quick'n'dirty support for constants in the configselect arrays

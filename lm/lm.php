@@ -3,13 +3,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.8                                                               |
+// | Geeklog 2.1.0                                                             |
 // +---------------------------------------------------------------------------+
 // | lm.php                                                                    |
 // |                                                                           |
 // | Update a language file by merging it with english.php                     |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2011 by the following authors:                         |
+// | Copyright (C) 2004-2013 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -30,7 +30,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 
-$VERSION = '1.0.4';
+$VERSION = '1.0.5';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -85,6 +85,11 @@ $shortmsg                   = '{$shortmsg}';
 $successes                  = '{$successes}';
 $topic                      = '{$topic}';
 $type                       = '{$type}';
+
+// names of constants to be used in the configselect arrays
+$config_constants = array(
+    'TOPIC_ALL_OPTION', 'TOPIC_HOMEONLY_OPTION', 'TOPIC_SELECTED_OPTION'
+);
 
 // load the English language file
 if (empty($module)) {
@@ -211,7 +216,7 @@ function prepareText($newtxt)
 */
 function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
 {
-    global $mb;
+    global $mb, $config_constants;
 
     $numElements = sizeof($ENG);
     $counter = 0;
@@ -261,6 +266,8 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
                 } elseif ($ntxt === false) {
                     $quotedtext .= 'false';
                 } elseif (is_numeric($ntxt)) {
+                    $quotedtext .= $ntxt;
+                } elseif (in_array($ntxt, $config_constants)) {
                     $quotedtext .= $ntxt;
                 } else {
                     $quotedtext .= "'" . my_str_replace("'", "\'", $ntxt) . "'";
