@@ -90,6 +90,7 @@ $ENGWN = $LANG_WHATSNEW;
 $ENGMO = $LANG_MONTH;
 $ENGWK = $LANG_WEEK;
 $ENGAD = $LANG_ADMIN;
+$ENG_LOGVIEW = $LANG_LOGVIEW;
 
 $ENG_commentcodes = $LANG_commentcodes;
 $ENG_commentmodes = $LANG_commentmodes;
@@ -171,6 +172,7 @@ echo "# ADMIN PHRASES - These are file phrases used in admin scripts\n";
 separator();
 echo "\n";
 
+mergeArrays($ENG_LOGVIEW, $LANG_LOGVIEW, 'LANG_LOGVIEW', 'admin/logviewer.php');
 mergeArrays($ENG20, $LANG20, 'LANG20', 'admin/auth.inc.php');
 mergeArrays($ENG21, $LANG21, 'LANG21', 'admin/block.php');
 mergeArrays($ENG24, $LANG24, 'LANG24', 'admin/story.php');
