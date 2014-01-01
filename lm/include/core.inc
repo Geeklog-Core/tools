@@ -2,13 +2,13 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | Geeklog 1.8                                                               |
+// | Geeklog 2.1.0                                                             |
 // +---------------------------------------------------------------------------+
 // | core.inc                                                                  |
 // |                                                                           |
 // | Update a core language file by merging it with english.php                |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2011 by the following authors:                         |
+// | Copyright (C) 2004-2014 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -91,6 +91,7 @@ $ENGMO = $LANG_MONTH;
 $ENGWK = $LANG_WEEK;
 $ENGAD = $LANG_ADMIN;
 $ENG_LOGVIEW = $LANG_LOGVIEW;
+$ENG_ENVCHECK = $LANG_ENVCHECK;
 
 $ENG_commentcodes = $LANG_commentcodes;
 $ENG_commentmodes = $LANG_commentmodes;
@@ -173,6 +174,7 @@ separator();
 echo "\n";
 
 mergeArrays($ENG_LOGVIEW, $LANG_LOGVIEW, 'LANG_LOGVIEW', 'admin/logviewer.php');
+mergeArrays($ENG_ENVCHECK, $LANG_ENVCHECK, 'LANG_ENVCHECK', 'admin/envcheck.php - distribution integrity checker');
 mergeArrays($ENG20, $LANG20, 'LANG20', 'admin/auth.inc.php');
 mergeArrays($ENG21, $LANG21, 'LANG21', 'admin/block.php');
 mergeArrays($ENG24, $LANG24, 'LANG24', 'admin/story.php');
