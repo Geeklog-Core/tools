@@ -9,7 +9,7 @@
 // |                                                                           |
 // | Update a language file by merging it with english.php                     |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2004-2013 by the following authors:                         |
+// | Copyright (C) 2004-2014 by the following authors:                         |
 // |                                                                           |
 // | Author:  Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------+
@@ -30,7 +30,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 
-$VERSION = '1.0.5';
+$VERSION = '1.0.6';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -258,6 +258,24 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
         }
 
         if (is_array($newtxt)) { // mainly for the config selects
+
+            if (count($ENG[$key]) != count($OTHER[$key])) {
+                // In case there are new entries for a config, merge those
+                // into the existing one to keep the translation intact.
+
+                // Note: We can't use array_merge() or "+" since we want to
+                // keep the original order intact.
+                $newtxt = array();
+                foreach ($ENG[$key] as $ekey => $evalue) {
+                    $okey = array_search($evalue, $OTHER[$key], true);
+                    if ($okey === false) {
+                        $newtxt[$ekey] = $evalue;
+                    } else {
+                        $newtxt[$okey] = $evalue;
+                    }
+                }
+            }
+
             $quotedtext = 'array(';
             foreach ($newtxt as $nkey => $ntxt) {
                 $quotedtext .= "'" . my_str_replace("'", "\'", $nkey) . "' => ";
