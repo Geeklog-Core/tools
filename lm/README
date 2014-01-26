@@ -1,4 +1,4 @@
-lm.php v1.0.6
+lm.php v1.0.7
 
 This script merges a Geeklog (foreign) language file with the english.php
 language file, so that new strings added to english.php are automatically added
@@ -65,3 +65,4 @@ History
 1.0.4 added $LANG_LOGVIEW
 1.0.5 added quick'n'dirty support for constants in the configselect arrays
 1.0.6 can now detect changes (new/removed options) in the configselect arrays
+1.0.7 fixed handling of keys of an array
