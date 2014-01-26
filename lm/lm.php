@@ -30,7 +30,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 
-$VERSION = '1.0.6';
+$VERSION = '1.0.7';
 
 // Prevent PHP from reporting uninitialized variables
 error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR );
@@ -259,7 +259,7 @@ function mergeArrays($ENG, $OTHER, $arrayName, $comment = '')
 
         if (is_array($newtxt)) { // mainly for the config selects
 
-            if (count($ENG[$key]) != count($OTHER[$key])) {
+            if (!empty($OTHER[$key]) && (count($ENG[$key]) != count($OTHER[$key]))) {
                 // In case there are new entries for a config, merge those
                 // into the existing one to keep the translation intact.
 
