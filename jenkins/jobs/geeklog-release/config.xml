@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Creates a Geeklog release tarball.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.mantis.MantisProjectProperty>
+      <siteName>http://project.geeklog.net/tracking/</siteName>
+      <pattern>#%ID%</pattern>
+      <regexpPattern>
+        <pattern>(?&lt;=#)(\d+)(?=)</pattern>
+        <flags>0</flags>
+      </regexpPattern>
+      <linkEnabled>true</linkEnabled>
+    </hudson.plugins.mantis.MantisProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.mercurial.MercurialSCM">
+    <installation>(Default)</installation>
+    <source>/cvsroot/hg/geeklog</source>
+    <modules></modules>
+    <branch>HEAD</branch>
+    <clean>false</clean>
+    <forest>false</forest>
+    <browser class="hudson.plugins.mercurial.browser.HgWeb">
+      <url>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/geeklog/</url>
+    </browser>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector">
+    <hudson.triggers.SCMTrigger>
+      <spec>4,19,34,49 * * * *</spec>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>customworkspace/release</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/usr/local/bin/bash
+
+hgroot=&apos;/cvsroot/hg&apos;
+distroot=&apos;/usr/home/geeklog2/public_html/www/nightly&apos;
+
+cd $WORKSPACE
+
+if [ ! -f known-tags ]; then
+  hg tags &gt; known-tags
+fi
+
+tag=`hg tags | diff known-tags - | grep -v tip | grep &apos;&gt;&apos; | cut -d&apos; &apos; -f2 | grep &apos;geeklog_&apos; | head -1`
+
+if [ &quot;$tag&quot; ]; then
+
+  rel=`echo $tag | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_stable//&apos; | sed &apos;s/_/./g&apos;`
+
+  # check for too many dots, i.e. fix 1.7.2.1 -&gt; 1.7.2-1
+  relcheck=`echo $rel | cut -d&apos;.&apos; -f4`
+  if [ &quot;$relcheck&quot; ]; then
+    rel=`echo $rel | sed &apos;s/\.\([^\.]*\)$/-\1/&apos;`
+  fi
+  echo &quot;New release tagged: $tag, i.e. $rel&quot;
+
+  # sanity check
+  if [ ! &quot;$rel&quot; ]; then
+    echo &quot;Empty version for tag $tag?!&quot;
+    exit 1
+  fi
+
+  # find previous release tag
+  # &quot;_stable&quot; -&gt; &quot;s&quot; to make it sort between rc1 and sr1
+  xtag=`echo $tag | sed &apos;s/_stable/s/&apos;`
+  prev=`hg tags | cut -f1 -d&apos; &apos; | sed &apos;s/_stable/s/&apos; | sort | grep -B 1 $xtag | head -1`
+  prevrel=`echo $prev | sed &apos;s/s$//&apos; | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
+
+  # prev=`grep -B 1 $tag .hgtags | head -1 | cut -d&apos; &apos; -f2`
+  # prevrel=`echo $prev | sed &apos;s/geeklog_/geeklog-/&apos; | sed &apos;s/_/./g&apos;`
+
+  # check for too many dots, i.e. fix 1.7.2.1 -&gt; 1.7.2-1
+  relcheck=`echo $prevrel | cut -d&apos;.&apos; -f4`
+  if [ &quot;$relcheck&quot; ]; then
+    prevrel=`echo $prevrel | sed &apos;s/\.\([^\.]*\)$/-\1/&apos;`
+  fi
+
+  # sanity checks ...
+  if [ &quot;$tag&quot; = &quot;$prev&quot; ]; then
+    echo &quot;Duplicate tag $tag?!&quot;
+    exit 1
+  fi
+  if [ &quot;$rel&quot; = &quot;$prevrel&quot; ]; then
+    echo &quot;Duplicate version $rel?!&quot;
+    exit 1
+  fi
+
+  # remove previous artifacts
+  rm -f *.tar.gz
+
+  cd ..
+  rm -rf $rel $prevrel
+
+  echo &quot;Checking out $tag ...&quot;
+  hg clone -r $tag $hgroot/geeklog $rel
+  if [ $? -ne 0 ]; then
+    echo &quot;hg clone -r $tag failed&quot;
+    exit 1
+  fi
+  if [ ! -d $rel ]; then
+    echo &quot;$rel directory not found.&quot;
+    exit 1
+  fi
+  cd $rel
+
+  echo &quot;Preparing $rel archive ...&quot;
+  rm -rf .hg .hgignore .hgtags
+
+  # add required PEAR classes
+  cd system/pear
+  cp $distroot/geeklog-pear.tar.gz .
+  tar xf geeklog-pear.tar.gz
+  rm -f geeklog-pear.tar.gz
+  cd ../..
+
+  # don&apos;t ship Professional CSS theme yet
+  rm -rf public_html/layout/professional_css
+
+  # don&apos;t ship old upgrade files (from pre-1.3 versions)
+  rm -f sql/updates/*.sql
+  rm -f sql/updates/1.2.5-1_to_1.3.NOTES
+
+  # PEAR buildpackage files
+  rm -f plugins/calendar/buildpackage.php
+  rm -f plugins/links/buildpackage.php
+  rm -f plugins/polls/buildpackage.php
+  rm -f plugins/spamx/buildpackage.php
+  rm -f plugins/staticpages/buildpackage.php
+  rm -rf system/build
+
+  mv db-config.php.dist db-config.php
+  mv public_html/siteconfig.php.dist public_html/siteconfig.php
+
+  # lib-custom.php.dist is the actual lib-custom.php file now ...
+  mv system/lib-custom.php.dist system/lib-custom.php
+
+  find . -type f -exec chmod a-x \{\} \;
+  chmod a+x emailgeeklogstories
+
+  # set the default permissions
+  chmod 775 backups
+  chmod 775 data
+  chmod 775 logs
+  chmod 664 logs/*log
+  chmod 775 public_html/backend
+  chmod 644 public_html/backend/*.rss
+  chmod 775 public_html/images/articles
+  chmod 664 public_html/images/articles/*
+  chmod 775 public_html/images/topics
+  chmod 664 public_html/images/topics/*
+  chmod 775 public_html/images/userphotos
+  chmod 664 public_html/images/userphotos/*
+
+  cd ..
+
+  # new release is ready, now compare with previous release
+  if [ -f $distroot/$prevrel.tar.gz ]; then
+    rm -rf $prevrel $prevrel.tar.gz
+    cp $distroot/$prevrel.tar.gz .
+    tar xfz $distroot/$prevrel.tar.gz
+    rm -f $prevrel.tar.gz
+  else
+    echo &quot;Previous version $prevrel not found&quot;
+    exit 1
+  fi
+
+  diff -b -B --brief --recursive -N $prevrel $rel | grep -v &apos;system.pear&apos; | cut -f 4 -d&apos; &apos; &gt; changed-files
+  mv changed-files $rel/public_html/docs/
+
+  rm -f $rel.tar $rel.tar.gz
+
+  tar cf $rel.tar $rel
+  gzip --best $rel.tar
+
+  md5 $rel.tar.gz | cut -f2 -d&apos;=&apos; | sed &apos;s/ //g&apos; &gt; $rel.tar.gz.md5
+  checksum=`md5 $rel.tar.gz | cut -f2 -d&apos;=&apos; | sed &apos;s/ //g&apos; | tr -d &apos;\012&apos;`
+
+  # make tarball available for download
+  cp $rel.tar.gz* $distroot/
+  # needs to be in workspace for archiving the artifact
+  mv $rel.tar.gz $WORKSPACE/
+
+  if [ -f $WORKSPACE/$rel.tar.gz ]; then
+    echo &quot;$rel.tar.gz created.&quot;
+  else
+    echo &quot;Could not create $rel.tar.gz tarball&quot;
+    exit 1
+  fi
+
+  scp -q -p $WORKSPACE/$rel.tar.gz geeklog@qs457.pair.com:/usr/www/users/geeklog/nightly/
+  if [ $? -eq 0 ]; then
+    echo &quot;Sent $rel.tar.gz to www.geeklog.net&quot;
+  fi
+
+  sleep 2
+
+  wget -U Geeklog/Jenkins -q -O /dev/null &quot;http://www.geeklog.net/filemgmt/submit-local-file.php?action=geeklog_release&amp;filename=$rel.tar.gz&amp;md5=$checksum&quot;
+
+  # cleanup
+  rm -rf $rel $prevrel
+  rm -f $rel.tar $rel.tar.gz $rel.tar.gz.md5 $prevrel.tar.gz
+
+  cd $WORKSPACE
+  hg tags &gt; known-tags
+
+else
+
+  echo &quot;Nothing to do - no new tags found.&quot;
+
+fi
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>geeklog*.tar.gz</artifacts>
+      <latestOnly>true</latestOnly>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.tasks.Fingerprinter>
+      <targets>*.tar.gz</targets>
+      <recordBuildArtifacts>true</recordBuildArtifacts>
+    </hudson.tasks.Fingerprinter>
+    <hudson.plugins.emailext.ExtendedEmailPublisher>
+      <recipientList>dirk@haun-online.de</recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+          <email>
+            <recipientList></recipientList>
+            <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+            <body>$PROJECT_DEFAULT_CONTENT</body>
+            <sendToDevelopers>false</sendToDevelopers>
+            <sendToRequester>false</sendToRequester>
+            <includeCulprits>false</includeCulprits>
+            <sendToRecipientList>true</sendToRecipientList>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+      </configuredTriggers>
+      <contentType>text/plain</contentType>
+      <defaultSubject>$DEFAULT_SUBJECT</defaultSubject>
+      <defaultContent>$DEFAULT_CONTENT</defaultContent>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
+    <hudson.plugins.claim.ClaimPublisher/>
+  </publishers>
+  <buildWrappers/>
+</project>

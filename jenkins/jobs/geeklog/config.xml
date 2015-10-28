@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.mantis.MantisProjectProperty>
+      <siteName>http://project.geeklog.net/tracking/</siteName>
+      <pattern>#%ID%</pattern>
+      <regexpPattern>
+        <pattern>(?&lt;=#)(\d+)(?=)</pattern>
+        <flags>0</flags>
+      </regexpPattern>
+      <linkEnabled>true</linkEnabled>
+    </hudson.plugins.mantis.MantisProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.mercurial.MercurialSCM">
+    <installation>(Default)</installation>
+    <source>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/geeklog/</source>
+    <modules></modules>
+    <branch>HEAD</branch>
+    <clean>false</clean>
+    <forest>false</forest>
+    <browser class="hudson.plugins.mercurial.browser.HgWeb">
+      <url>http://project.geeklog.net/cgi-bin/hgwebdir.cgi/geeklog/</url>
+    </browser>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector">
+    <hudson.triggers.SCMTrigger>
+      <spec>*/5 * * * *</spec>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>customworkspace/geeklog</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cd $WORKSPACE
+
+if [ ! -e db-config.php ]; then
+  cp -p db-config.php.dist db-config.php
+fi
+
+if [ ! -e public_html/siteconfig.php ]; then
+  cp -p public_html/siteconfig.php.dist public_html/siteconfig.php
+fi
+
+if [ ! -e system/lib-custom.php ]; then
+  cp -p system/lib-custom.php.dist system/lib-custom.php
+fi
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>test-framework</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+    <hudson.plugins.claim.ClaimPublisher/>
+  </publishers>
+  <buildWrappers/>
+</project>
