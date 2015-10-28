@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns="http://purl.org/rss/1.0/">
+
+<channel rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>SharedAntiSpam Blacklist Changes</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>This feed reflects changes to the master SharedAntiSpam blacklist</description>
+<dc:language>en-us</dc:language>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2015-10-20T14:05:04-04:00</dc:date>
+
+<items>
+<rdf:Seq>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+<rdf:li rdf:resource="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam"/>
+</rdf:Seq>
+</items>
+</channel>
+
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>spvalve\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>spvalve\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>spvalve\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-26T00:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>rosement\.com\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>rosement\.com\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>rosement\.com\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-26T00:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>kaiquan\.com\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>kaiquan\.com\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>kaiquan\.com\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-26T00:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>huigao-v\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>huigao-v\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>huigao-v\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-26T00:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>dltools\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>dltools\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>dltools\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-26T00:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>bgzb\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>bgzb\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>bgzb\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-26T00:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>bengfa168\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>bengfa168\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>bengfa168\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-26T00:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>slondcnixlwj\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>slondcnixlwj\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>slondcnixlwj\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T15:05:12-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>miqiatwuypzw\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>miqiatwuypzw\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>miqiatwuypzw\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T15:05:12-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>iiwezxmkwzht\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>iiwezxmkwzht\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>iiwezxmkwzht\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T15:05:12-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>hjigunxxrqaf\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>hjigunxxrqaf\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>hjigunxxrqaf\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T15:05:12-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>znstudio\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>znstudio\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>znstudio\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>sixnet\.com\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>sixnet\.com\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>sixnet\.com\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>liaoxinbj\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>liaoxinbj\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>liaoxinbj\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>fstzb\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>fstzb\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>fstzb\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>flowervoice\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>flowervoice\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>flowervoice\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>cydjk\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>cydjk\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>cydjk\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>bjhrj\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>bjhrj\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>bjhrj\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>99caigang\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>99caigang\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>99caigang\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>466tv\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>466tv\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>466tv\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T11:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>zgxbzlw\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>zgxbzlw\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>zgxbzlw\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T10:05:18-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>bjht888\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>bjht888\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>bjht888\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-25T05:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>bj5yuehua\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>bj5yuehua\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>bj5yuehua\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-24T11:05:14-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>jonchn\.com\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>jonchn\.com\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>jonchn\.com\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-24T09:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>datangshutong\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>datangshutong\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>datangshutong\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-24T08:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>cdq369\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>cdq369\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>cdq369\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-24T08:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>raymondmill.biz</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>raymondmill.biz...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>raymondmill.biz</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-23T13:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>hhpumps.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>hhpumps.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>hhpumps.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-23T13:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>grinding-mill.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>grinding-mill.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>grinding-mill.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-23T13:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>video[\w\-_.]*sexo</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>video[\w\-_.]*sexo...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>video[\w\-_.]*sexo</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>video[\w\-_.]*gratis</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>video[\w\-_.]*gratis...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>video[\w\-_.]*gratis</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>svx\d\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>svx\d\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>svx\d\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>suphost\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>suphost\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>suphost\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>seeyo\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>seeyo\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>seeyo\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>rossa\d\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>rossa\d\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>rossa\d\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>pr1ma\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>pr1ma\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>pr1ma\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>hostzz\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>hostzz\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>hostzz\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>host24h\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>host24h\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>host24h\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>hom\d\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>hom\d\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>hom\d\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>freespase\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>freespase\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>freespase\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>freehostss\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>freehostss\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>freehostss\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>foto[\w\-_.]*nudo</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>foto[\w\-_.]*nudo...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>foto[\w\-_.]*nudo</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>filmes[\w\-_.]*sexo</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>filmes[\w\-_.]*sexo...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>filmes[\w\-_.]*sexo</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>filmes[\w\-_.]*gratis</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>filmes[\w\-_.]*gratis...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>filmes[\w\-_.]*gratis</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>dom\d\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>dom\d\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>dom\d\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>cardz\d\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>cardz\d\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>cardz\d\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>bomb\d\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>bomb\d\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>bomb\d\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>19mb\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>19mb\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>19mb\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T08:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>xzhfblp\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>xzhfblp\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>xzhfblp\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>xiezilouxinxi\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>xiezilouxinxi\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>xiezilouxinxi\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>xfgkj\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>xfgkj\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>xfgkj\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>sweepdesign\.jp</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>sweepdesign\.jp...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>sweepdesign\.jp</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>power-level\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>power-level\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>power-level\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>linuxbj\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>linuxbj\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>linuxbj\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>lingollc\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>lingollc\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>lingollc\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>kibonbarcode\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>kibonbarcode\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>kibonbarcode\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>houseso\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>houseso\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>houseso\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>fourw\.jp</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>fourw\.jp...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>fourw\.jp</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>e489d\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>e489d\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>e489d\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>chn-job\.com\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>chn-job\.com\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>chn-job\.com\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>boinbb\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>boinbb\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>boinbb\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>beijingxiezilou\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>beijingxiezilou\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>beijingxiezilou\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T07:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>netbai\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>netbai\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>netbai\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-21T04:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>ofcpa\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>ofcpa\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>ofcpa\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-20T11:05:10-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>xgswd\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>xgswd\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>xgswd\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-20T07:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>temaxd\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>temaxd\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>temaxd\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-20T07:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>gglhctm\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>gglhctm\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>gglhctm\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-20T07:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>89bm\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>89bm\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>89bm\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-20T07:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>grendamix\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>grendamix\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>grendamix\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-19T12:05:06-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>ylhz\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>ylhz\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>ylhz\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-19T11:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>movief\.5gbfree\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>movief\.5gbfree\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>movief\.5gbfree\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-17T17:05:13-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>loveangelinajolie\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>loveangelinajolie\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>loveangelinajolie\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-17T15:05:06-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>titaniuexport\.kiev\.ua</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>titaniuexport\.kiev\.ua...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>titaniuexport\.kiev\.ua</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-16T19:05:10-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>sei-mein-bester-freund\.de</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>sei-mein-bester-freund\.de...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>sei-mein-bester-freund\.de</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-15T14:05:11-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>normalforce\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>normalforce\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>normalforce\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-14T10:05:11-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>fundorro\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>fundorro\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>fundorro\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-13T20:05:06-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>yournetexpert\.hostwq\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>yournetexpert\.hostwq\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>yournetexpert\.hostwq\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-13T04:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>vulturesknob\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>vulturesknob\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>vulturesknob\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-12T03:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>rs2myth\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>rs2myth\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>rs2myth\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T21:05:13-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>mydofus\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>mydofus\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>mydofus\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T21:05:13-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>levelmyth\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>levelmyth\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>levelmyth\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T21:05:13-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>coolingame\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>coolingame\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>coolingame\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T21:05:13-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>buy-dofus-kamas\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>buy-dofus-kamas\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>buy-dofus-kamas\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T21:05:13-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>ankama\.us</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>ankama\.us...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>ankama\.us</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T21:05:13-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>teamflyelectronic\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>teamflyelectronic\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>teamflyelectronic\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T11:05:10-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>isefc\.com\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>isefc\.com\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>isefc\.com\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T11:05:10-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>hzmqzs\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>hzmqzs\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>hzmqzs\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T11:05:10-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>globalceoforum\.com\.cn</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>globalceoforum\.com\.cn...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>globalceoforum\.com\.cn</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T11:05:10-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>mysiteup\.my2gig\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>mysiteup\.my2gig\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>mysiteup\.my2gig\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-11T03:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>toppowerlevel\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>toppowerlevel\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>toppowerlevel\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-10T20:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>www\.simoncomputing\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>www\.simoncomputing\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>www\.simoncomputing\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-10T16:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>shcbprint\.net</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>shcbprint\.net...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>shcbprint\.net</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-10T15:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>pikiran-rakyat\.co\.id</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>pikiran-rakyat\.co\.id...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>pikiran-rakyat\.co\.id</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-09-08T15:05:06-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>sudu\.info</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>sudu\.info...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>sudu\.info</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-08-30T16:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>free-online-dating</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>free-online-dating...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>free-online-dating</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-08-19T18:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>it\.snhu\.edu</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>it\.snhu\.edu...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>it\.snhu\.edu</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-08-18T17:05:07-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>whichsideofthefence\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>whichsideofthefence\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>whichsideofthefence\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-08-18T03:05:06-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>strawberrydelights\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>strawberrydelights\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>strawberrydelights\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-08-17T12:05:08-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>xianweijin\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>xianweijin\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>xianweijin\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-08-06T03:05:12-04:00</dc:date>
+</item>
+<item rdf:about="http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam">
+<title>(sh)?chfang\.com</title>
+<link>http://www.usemod.com/cgi-bin/mb.pl?SharedAntiSpam</link>
+<description>(sh)?chfang\.com...</description>
+<content:encoded><![CDATA[[Blacklist additions] <p>(sh)?chfang\.com</p>
+]]></content:encoded>
+<dc:subject>Blacklist additions</dc:subject>
+<dc:creator>Geeklog</dc:creator>
+<dc:date>2007-08-06T03:05:12-04:00</dc:date>
+</item>
+
+</rdf:RDF>
