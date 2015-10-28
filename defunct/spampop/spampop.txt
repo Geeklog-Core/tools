@@ -1,0 +1,16 @@
+#
+#   Pinappleproxy Blacklist Master Copy
+#
+#   Last update:        2005-04-26 05:15:01
+#   Number of entries:  4
+#
+#   This is the master copy of the pinappleproxy
+#   blacklist.
+#
+#   You can find out more about this file at:
+#    http://www.candygenius.com/pinapplyproxy_spammer
+#
+1.http:
+2.http:
+3.http:
+4.http:
