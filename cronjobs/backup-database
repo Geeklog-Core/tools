@@ -1,0 +1,106 @@
+#!/usr/www/cgi-bin/php4.cgi -q
+<?php
+
+/**
+* Date: 2/7/2002
+*
+* This script will backup  a database on a daily,
+* weekly and monthly basis.  This script will keep only
+* 7 daily backups, 4 weekly backups and 12 monthly backups
+*
+*/
+
+// This directory you specify below expects the following subdirectories: daily/, weekly/, monthly/
+$backup_dir = '/usr/home/geeklog/geeklog/backups/';
+
+// MySQL Acccount info.  This should not be world readable unless you don't mind your
+// mysql info being viewed.
+$mysqlhost = 'localhost';
+$mysqluser = 'geeklog';
+$mysqlpass = 'yeah-right';
+
+// The database you want to backup 
+$database = 'geeklog_production';
+
+// path to mysqldump
+$mysqldump = '/usr/local/bin/mysqldump';
+
+// Change this to point to the location of your tar
+$tar_cmd = '/usr/bin/tar';
+
+/** You should not have to touch anything below here **/
+
+/***********************
+* DAILY BACKUP
+***********************/
+$backup_file = date('Ymd') . '_daily_backup.sql';
+
+$old_backups = getOldBackups($backup_dir . 'daily/');
+
+// Sort results and remove oldest backup
+if (sizeof($old_backups) > 6) {
+    rsort($old_backups);
+    $oldest_backup = array_pop($old_backups);
+    unlink($backup_dir . "daily/$oldest_backup");
+}
+
+// Dump the database
+exec("$mysqldump -h$mysqlhost -u$mysqluser -p$mysqlpass $database > " . $backup_dir . 'daily/' . $backup_file);
+exec("$tar_cmd --directory $backup_dir" . "daily/ -czf $backup_dir" . "daily/$backup_file" . '.tar.gz ' . $backup_file);
+unlink($backup_dir . 'daily/' . $backup_file);
+
+/***********************
+* WEEKLY BACKUP
+***********************/
+// If at end of week do weekly backup
+if (date('w') == '0') {
+    if ($old_backups = getOldBackups($backup_dir . 'weekly/')) {
+        if (sizeof($old_backups) > 3) {
+            rsort($old_backups);
+            $oldest_backup = array_pop($old_backups);
+            unlink($backup_dir . "weekly/$oldest_backup");
+        }
+    }
+    copy($backup_dir . 'daily/' . $backup_file . '.tar.gz' , $backup_dir . 'weekly/' . str_replace('daily','weekly',$backup_file) . '.tar.gz');
+}
+
+/***********************
+* WEEKLY BACKUP
+***********************/
+// If at end of month do monthly backup
+if (date('d') == '01') {
+    if ($old_backups = getOldBackups($backup_dir . 'monthly/')) {
+        if (sizeof($old_backups) == 12) {
+            rsort($old_backups);
+            $oldest_backup = array_pop($old_backups);
+            unlink($backup_dir . "monthly/$oldest_backup");
+        }
+    }
+    copy($backup_dir . 'daily/' . $backup_file . '.tar.gz', $backup_dir . 'monthly/' . str_replace('daily','monthly',$backup_file) . '.tar.gz');
+}
+
+/**
+* This simply gets all the files in an directory and loads the
+* file names into an array
+*
+*/
+function getOldBackups($dir_path)
+{
+    if (!is_dir($dir_path)) return false;
+
+    $fd = opendir($dir_path);
+    $old_backups = array();
+    $index = 1;
+    while (($f = @readdir($fd)) == TRUE) {
+        if (!is_dir($f)) {
+            clearstatcache();
+            $old_backups[$index] = $f;
+            $index++;
+        }
+    }
+    closedir($fd);
+
+    return $old_backups;
+}
+
+?>
