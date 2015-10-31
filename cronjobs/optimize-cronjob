@@ -1,0 +1,57 @@
+#!/usr/local/bin/php -q
+<?php
+
+/* Reminder: always indent with 4 spaces (no tabs). */
+// +---------------------------------------------------------------------------+
+// | Geeklog 1.3                                                               |
+// +---------------------------------------------------------------------------+
+// | optimize-cronjob                                                          |
+// |                                                                           |
+// | Optimize the tables of a Geeklog database. To be called from a cronjob.   |
+// +---------------------------------------------------------------------------+
+// | Copyright (C) 2004 by the following authors:                              |
+// |                                                                           |
+// | Authors: Dirk Haun - dirk@haun-online.de                                  |
+// +---------------------------------------------------------------------------+
+// |                                                                           |
+// | This program is free software; you can redistribute it and/or             |
+// | modify it under the terms of the GNU General Public License               |
+// | as published by the Free Software Foundation; either version 2            |
+// | of the License, or (at your option) any later version.                    |
+// |                                                                           |
+// | This program is distributed in the hope that it will be useful,           |
+// | but WITHOUT ANY WARRANTY; without even the implied warranty of            |
+// | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             |
+// | GNU General Public License for more details.                              |
+// |                                                                           |
+// | You should have received a copy of the GNU General Public License         |
+// | along with this program; if not, write to the Free Software Foundation,   |
+// | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
+// |                                                                           |
+// +---------------------------------------------------------------------------+
+//
+// $Id: optimize-cronjob,v 1.2 2004/07/12 08:39:21 dirk Exp $
+
+// IMPORTANT: 1) Change the path below to point to your lib-common.php
+//            2) Make sure the script is executable: chmod a+x optimize-cronjob
+//            3) You may need to adjust the path to the PHP executable in the
+//               very first line of this script
+
+//require_once ('/usr/www/users/geeklog/lib-common.php');
+require_once ('/usr/home/geeklog/geeklog/config.php');
+require_once ($_CONF['path'] . 'system/lib-database.php');
+
+
+// MAIN
+
+$tables = '`' . implode ("`,`", $_TABLES) . "`";
+DB_query ("OPTIMIZE TABLE $tables");
+
+$lastrun = DB_getItem ($_TABLES['vars'], 'value', "name = 'lastoptimizeddb'");
+if (empty ($lastrun)) {
+    DB_save ($_TABLES['vars'], 'name,value', "'lastoptimizeddb', NOW()");
+} else {
+    DB_query ("UPDATE {$_TABLES['vars']} SET value = NOW() WHERE name = 'lastoptimizeddb'");
+}
+
+?>
