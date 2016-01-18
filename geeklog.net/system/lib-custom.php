@@ -379,6 +379,7 @@ function CUSTOM_templateSetVars($templatename, &$template)
     }
 }
 
+/* For File Management Plugin */
 function phpblock_current_versions()
 {
     global $_CONF, $_FM_TABLES;
@@ -386,6 +387,41 @@ function phpblock_current_versions()
     $output = '<p><a href="' . $_CONF['site_url'] . '/filemgmt/viewcat.php?cid=8"><img src="' . $_CONF['site_url'] . '/images/buttons/download.png" width="134" height="49" border="0" align="center" alt="[Download]"></a><br' . XHTML . ">\n";
 
     $result = DB_query("SELECT version FROM {$_FM_TABLES['filemgmt_filedetail']} WHERE (cid = 8) AND (status = 1) ORDER BY date DESC LIMIT 2");
+    $num_versions = DB_numRows($result);
+
+    $stable = '';
+    $alternate = '';
+
+    for ($v = 0; $v < $num_versions; $v++) {
+        $A = DB_fetchArray($result);
+        $reltype = '';
+        if (strpos($A['version'], 'rc') !== false) {
+            $reltype = ' title="Release Candidate"';
+        } elseif (strpos($A['version'], 'b') !== false) {
+            $reltype = ' title="Beta Version"';
+        }
+
+        if (empty($reltype) && empty($stable)) {
+            $stable .= "Current version: <strong title=\"Recommended Version\">Geeklog {$A['version']}</strong></p>\n";
+        } elseif (! empty($reltype)) {
+            $alternate .= '<p>Also available:<br' . XHTML . ">\n"
+                       .  "<b$reltype>Geeklog " . $A['version'] . "</b></p>\n";
+        }
+    }
+
+    $output .= $stable . $alternate;
+
+    return $output;
+}
+
+/* For Downloads Plugin */
+function phpblock_current_versions_downloads()
+{
+    global $_CONF, $_TABLES;
+
+    $output = '<p><a href="' . $_CONF['site_url'] . '/downloads/index.php?cid=8"><img src="' . $_CONF['site_url'] . '/images/buttons/download.png" width="134" height="49" border="0" align="center" alt="[Download]"></a><br' . XHTML . ">\n";
+
+    $result = DB_query("SELECT version FROM {$_TABLES['downloads']} WHERE (cid = 8) ORDER BY date DESC LIMIT 2");
     $num_versions = DB_numRows($result);
 
     $stable = '';
