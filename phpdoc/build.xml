@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="PhpDoc" default="gendoc">
+
+    <property name="home_dir" value="/usr/home/geeklog2" />
+    <property name="phpdoc_home" value="${home_dir}/phpDocumentator" />
+    <property name="source_dir" value="${home_dir}/Jenkins/customworkspace/geeklog-nightly" />
+    <property name="target_dir" value="${home_dir}/public_html/www/src" />
+
+    <target name="gendoc">
+        <echo msg="Creating documentation ..." />
+        <exec command="${phpdoc_home}/phpdoc -t ${target_dir} -o HTML:Smarty:PHP -d ${source_dir} -i *language/*,system/build/,buildpackage.*,system/pear/,public_html/fckeditor/,public_html/editors/,public_html/images/ -dc Geeklog -dn Geeklog -ti 'Geeklog Source Code Documentation' -q" passthru="true" />
+    </target>
+
+</project>
