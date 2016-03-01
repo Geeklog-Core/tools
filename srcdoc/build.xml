@@ -9,15 +9,10 @@
     <property name="apigen_home" value="${home_dir}/apigen" />
     <property name="scripts_dir" value="${home_dir}/Scripts" />
     <property name="php_ini_file" value="${scripts_dir}/php.ini" />
-    <property name="source_dir" value="${home_dir}/nightly/geeklog-nightly" />
+    <property name="source_dir" value="${home_dir}/Jenkins/customworkspace/geeklog-nightly" />
     <property name="target_dir" value="${home_dir}/public_html/www/src2" />
 
-    <target name="update">
-        <echo msg="Updating local repository ..." />
-        <exec command="hg pull -u" dir="${source_dir}" />
-    </target>
-
-    <target name="gendoc" depends="update">
+    <target name="gendoc">
         <echo msg="Creating documentation ..." />
         <exec command="${php} -c ${php_ini_file} ./apigen.php --source ${source_dir} --destination ${target_dir}" dir="${apigen_home}" passthru="true" />
     </target>
