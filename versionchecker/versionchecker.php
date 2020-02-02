@@ -1,1 +1,1 @@
-<?php require 'versionchecker/versionchecker.php'; ?>
+<?php require __DIR__ . '/versionchecker/versionchecker.php';

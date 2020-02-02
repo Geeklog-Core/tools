@@ -1,0 +1,16 @@
+          <img src="versionchecker/img/icons/warning.png" alt="{warning}" width="48" height="48">
+        </td>
+        <td>
+          <h1>{}Upgrade recommendation</h1>
+          <p>{case4_message1}</p>
+          <p>{case4_message2}</p>
+          <p>{case4_message3}</p>
+          <p>{case4_message4}</p>
+        </td>
+        <td style="width: 237px;">
+          <div class="button">
+            <a href="https://www.geeklog.net/downloads/index.php?cid=8">{recommended_upgrade}<br>{download_geeklog_ver}</a>
+          </div><br>
+          <div class="button">
+            <a href="https://www.geeklog.net/downloads/index.php?cid=10">{alternative_upgrade}<br>{download_geeklog_alt}</a>
+          </div>

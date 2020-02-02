@@ -1,0 +1,15 @@
+          <img src="versionchecker/img/icons/info.png" alt="{info}" width="48" height="48">
+        </td>
+        <td>
+          <h1>{case6_title}</h1>
+          <p>{case6_message1}<strong>{current}</strong>{case6_message2}</p>
+          <p>{case6_message3}</p>
+          <p>{case6_message4}</p>
+        </td>
+        <td style="width: 237px;">
+          <div class="button">
+            <a href="https://www.geeklog.net/downloads/index.php?cid=8">{download_now}<br/>{geeklog_current}</a>
+          </div><br>
+          <div class="button">
+            <a href="https://www.geeklog.net/downloads/index.php">{view_all}<br>{available_downloads}</a>
+          </div>

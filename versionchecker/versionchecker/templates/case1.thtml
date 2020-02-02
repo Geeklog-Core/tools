@@ -1,0 +1,15 @@
+          <img src="versionchecker/img/icons/critical.png" alt="{error}" width="48" height="48">
+        </td>
+        <td>
+          <h1>{case1_title}</h1>
+          <p>{case1_message1}<a href="https://www.geeklog.net/staticpages/index.php/20011217123134458">{case1_message2}</a>{case1_message3}</p>
+          <p>{case1_message4}</p>
+        </td>
+        <td style="width: 237px;">
+        <div class="button">
+          <a href="https://www.geeklog.net/downloads/index.php?cid=8">{download_now}<br>{geeklog_current}</a>
+        </div>
+        <br>
+        <div class="button">
+          <a href="https://www.geeklog.net/downloads/index.php">{view_all}<br>{available_downloads}</a>
+        </div>

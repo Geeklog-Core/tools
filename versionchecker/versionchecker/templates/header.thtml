@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{iso639_code}">
+<head>
+  <meta charset="utf-8">
+  <title>{version_check}</title>
+  <link rel="stylesheet" type="text/css" href="versionchecker/style.css">
+</head>
+<body>
+<div class="top">
+  <a style="position: relative; top: 60px;" href="https://www.geeklog.net/" title="{go_to_homepage}">
+  <img src="versionchecker/img/speck.gif" width="462" height="150" alt=""></a>
+</div>
+<div class="main">
+  <div class="content">
+    <table border="0" cellpadding="12" cellspacing="0">
+      <tr>
+        <td style="width:48px; vertical-align: top; padding-top: 50px;">

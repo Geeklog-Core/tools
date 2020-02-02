@@ -8,9 +8,10 @@
 // |                                                                           |
 // | Version checker page.                                                     |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2011 by the following authors:                              |
+// | Copyright (C) 2011-2020 by the following authors:                         |
 // |                                                                           |
 // | Authors: Rouslan Placella  - rouslan AT placella DOT com                  |
+// |          Kenji ITO         - mystralkk AT gmail DOT com                   |
 // +---------------------------------------------------------------------------+
 // |                                                                           |
 // | This program is free software; you can redistribute it and/or             |
@@ -30,11 +31,48 @@
 // +---------------------------------------------------------------------------+
 
 // Include information about releases
-require('config.php');
+require __DIR__ . '/config.php';
 
 // ******************************
 // ********** FUNCTIONS *********
 // ******************************
+
+/**
+ * @param  string  $templateName
+ * @param  array   $vars
+ * @return string
+ */
+function render($templateName, array $vars)
+{
+    static $flags = null;
+
+    // Set up flags for htmlspecialchars
+    if ($flags === null) {
+        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+            $flags = ENT_QUOTES | ENT_HTML5;
+        } else {
+            $flags = ENT_QUOTES;
+        }
+    }
+
+    // Fetch temlate file
+    $content = @file_get_contents(__DIR__ . '/templates/' . $templateName . '.thtml');
+
+    if ($content === false) {
+        return '';
+    }
+
+    // Replace placeholders with actual values
+    foreach ($vars as $key => $value) {
+        $content = str_replace(
+            '{' . $key . '}',
+            htmlspecialchars($value, $flags, 'utf-8'),
+            $content
+        );
+    }
+
+    return $content;
+}
 
 /**
 * Prints the header
@@ -44,64 +82,61 @@ require('config.php');
 */
 function printHeader()
 {
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-    <title>Geeklog Version Check</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="versionchecker/style.css"/>
-</head>
-<body>
-<div class="top">
-    <a style="position: relative; top: 60px;" href="https://www.geeklog.net/" title="go to the Geeklog homepage">
-    <img src="versionchecker/img/speck.gif" width="462" height="150" alt=""/></a>
-</div>
-<div class="main">
-<div class="content">
-<table border="0" cellpadding="12" cellspacing="0"><tr><td style="width:48px; vertical-align: top; padding-top: 50px;">
-<?php
+    global $LANG_VER;
+
+    echo render('header', [
+        'iso639_code'    => $LANG_VER['iso639_code'],
+        'version_check'  => $LANG_VER['version_check'],
+        'go_to_homepage' => $LANG_VER['go_to_homepage'],
+    ]);
 }
 
 /**
 * Prints a footer with a timeline image
 *
-* @param    string  $version        Geeklog version number that is being checked
-* @param    int     $case           Represents the outcome of the comparison, possible values are:
-*                                   1 - invalid version number
-*                                   2 - OK, version up-to-date
-*                                   3 - upgrade
-*                                   4 - upgrade - alternative available
-*                                   5 - obsolete
-*                                   6 - Development
-*                                   7 - Not a release, maybe an rc or a beta
-* @return   void
-*
+* @param  string  $version  Geeklog version number that is being checked
+* @param  int     $case     Represents the outcome of the comparison, possible values are:
+*                             1 - invalid version number
+*                             2 - OK, version up-to-date
+*                             3 - upgrade
+*                             4 - upgrade - alternative available
+*                             5 - obsolete
+*                             6 - Development
+*                             7 - Not a release, maybe an rc or a beta
+* @param  string  $language
 */
-function printFooter($version='', $case)
+function printFooter($version, $case, $language)
 {
-    echo "</td></tr></table>\n";
-    echo "<img alt='Timeline of recent Geeklog releases' class='timeline' src='versionchecker/versionchecker.php?timeline=1&amp;version=" . $version . "&amp;case=" . $case . "'/></div></div>";
-    echo "<div class=\"bottom\">&nbsp;</div></body></html>";
+    global $LANG_VER;
+
+    $case = (int) $case;
+    echo render('footer', [
+        'case'     => $case,
+        'language' => $language,
+        'timeline' => $LANG_VER['timeline'],
+        'version'  => $version,
+    ]);
     die();
 }
 
 /**
 * Checks if a string could be a valid geeklog version
 *
-* @param    string  $version        Geeklog version number that is being checked
-* @return   bool                    true/false
-*
+* @param   string  $version  Geeklog version number that is being checked
+* @return  bool
 */
-function isValidVersion($version='')
+function isValidVersion($version = '')
 {
     $valid   = true;
+
     // some minimal parameter filtering ...
-    $v = explode ('.', $version);
-    if ((count ($v) != 3) || !is_numeric ($v[0]) || !is_numeric ($v[1])) {
+    $v = explode('.', $version);
+    if ((count($v) !== 3) || !is_numeric($v[0]) || !is_numeric($v[1])) {
         $valid = false;
     } else {
         $v = COM_versionConvert($version);
-        $v = explode ('.', $v);
+        $v = explode('.', $v);
+
         foreach ($v as $key => $value) {
             if (!is_numeric($value)) {
                 $valid = false;
@@ -109,6 +144,7 @@ function isValidVersion($version='')
             }
         }
     }
+
     return $valid;
 }
 
@@ -116,13 +152,14 @@ function isValidVersion($version='')
 * Common function used to convert a Geeklog version number into
 * a version number that can be parsed by PHP's "version_compare()"
 *
-* @param    string  $version        Geeklog version number
-* @return   string                  Generic version number that can be correctly handled by PHP
+* @param   string  $version  Geeklog version number
+* @return  string            Generic version number that can be correctly handled by PHP
 *
 */
 function COM_versionConvert($version)
 {
     $version = strtolower($version);
+
     // Check if it's a bugfix release first
     $dash = strpos($version, '-');
     if ($dash !== false) {
@@ -142,6 +179,7 @@ function COM_versionConvert($version)
             // Version is correctly formatted
             $rearrange = false;
         }
+
         // Rearrange the version number, if needed
         if ($rearrange) {
             $ver = substr($version, 0, $pos);
@@ -157,6 +195,7 @@ function COM_versionConvert($version)
         // Not a bugfix release, so we add a zero to compensate for the extra number
         $bugfix = '.0';
     }
+
     // We change the non-numerical part in the "versions" that were passed into the function
     // beta                      -> 1
     // rc                        -> 2
@@ -174,9 +213,9 @@ function COM_versionConvert($version)
         $version = str_replace('hg', '', $version);
         $version .= $bugfix . '.3.0';
     }
+
     return $version;
 }
-
 
 // ******************************
 // ************ MAIN ************
@@ -191,46 +230,64 @@ if (!empty($_GET['version'])) {
     $version = trim(strip_tags($_GET['version']));
 }
 
+// Include language file
+$language = 'english';
+if (!empty($_GET['language'])) {
+    $language = preg_replace('/[^0-9a-z_-]/', '', strtolower($_GET['language']));
+    $language = str_replace('_utf-8', '', $language);
+
+    if (!is_readable(__DIR__ . '/language/' . $language . '.php')) {
+        $language = 'english';
+    }
+}
+
+include __DIR__ . '/language/' . $language . '.php';
+
 if (!empty($_GET['timeline'])) {
     // Create and return a timeline graph
     $case = trim($_GET['case']);
     if (empty($case) || !is_numeric($case)) {
         $case = 1;
     }
-    include('graph.php');
+
+    include __DIR__ . '/graph.php';
     die();
 }
 
-printHeader(); // Print the top part of the HTML page
+// Print the top part of the HTML page
+header('Content-Type: text/html; charset=utf-8');
+printHeader();
 
 // ************************************
 // case 1 - invalid version number
 if (!isValidVersion($version)) {
-    echo "<img src='versionchecker/img/icons/critical.png' alt='Error!' width='48' height='48'/>\n";
-    echo "</td><td>\n";
-    echo "<h1>Sorry, an ERROR has occured while processing your request.</h1>\n";
-    echo "<p>We were unable to recognise the version number of your current Geeklog installation. \n";
-    echo "If this problem persists, please visit <a href='https://www.geeklog.net/staticpages/index.php/20011217123134458'>this page</a>\n ";
-    echo "to discover how you can get support.</p><p>We apologise for any inconvenience that this may have caused you.</p>\n";
-    echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php?cid=8'>Download Now<br/>Geeklog $current </a></div><br/>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php'>View All<br/>Available Downloads</a></div>\n";
-    printFooter('', 1);
+    echo render('case1', [
+        'error'           => $LANG_VER['error'],
+        'case1_title'     => $LANG_VER['case1_title'],
+        'case1_message1'  => $LANG_VER['case1_message1'],
+        'case1_message2'  => $LANG_VER['case1_message2'],
+        'case1_message3'  => $LANG_VER['case1_message3'],
+        'case1_message4'  => $LANG_VER['case1_message4'],
+        'download_now'    => $LANG_VER['download_now'],
+        'geeklog_current' => sprintf($LANG_VER['geeklog_current'], $current),
+        'view_all'        => $LANG_VER['view_all'],
+    ]);
+    printFooter('', 1, $language);
 }
 
 // ************************************
 // case 2 - OK, version up-to-date
 if ($version == $current) {
-    echo "<img src='versionchecker/img/icons/ok.png' alt='OK!' width='48' height='48'/>\n";
-    echo "</td><td>\n";
-    echo "<h1>Congratulations, your Geeklog installation is up-to-date.</h1>\n";
-    echo "<p>At the moment no action is required on your part to keep your installation secure. \n";
-    echo "However, we recommend that you make regular use of this version checker to ensure that you are \n";
-    echo "aware of any available updates. Alternatively, you may subscribe to the low-volume \n";
-    echo "<a href='http://eight.pairlist.net/mailman/listinfo/geeklog-announce'>announcements mailing list</a> to receive information about updates.</p>\n";
-    echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php'>View All<br/>Available Downloads</a></div>\n";
-    printFooter($version, 2);
+    echo render('case2', [
+        'ok'                  => $LANG_VER['ok'],
+        'case2_title'         => $LANG_VER['case2_title'],
+        'case2_message1'      => $LANG_VER['case2_message1'],
+        'case2_message2'      => $LANG_VER['case2_message2'],
+        'case2_message3'      => $LANG_VER['case2_message3'],
+        'view_all'            => $LANG_VER['view_all'],
+        'available_downloads' => $LANG_VER['available_downloads'],
+    ]);
+    printFooter($version, 2, $language);
 }
 
 // ************************************
@@ -244,83 +301,87 @@ foreach ($releases as $key => $release) {
     }
 }
 if ($index !== false && empty($releases[$index]['upgrade'])) {
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
-    echo "</td><td>\n";
-    echo "<h1>Upgrade Recommendation</h1>\n";
-    echo "<p>The Geeklog version you are running, $version, is out of date";
-    if (!$releases[$index]['supported']){
-        // Unsupported
-        echo " and is no longer supported. In your own interest, we strongly encourage you to upgrade to the current release.\n";
-    } else {
-        // Supported
-        echo ". We recommend upgrading to the current version, $current, at your earliest convenience.\n";
-    }
-    echo "</p><p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
-    echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current</a></div>\n";
-    printFooter($version, 3);
+    echo render('case3', [
+        'warning'                => $LANG_VER['warning'],
+        'upgrade_recommendation' => $LANG_VER['upgrade_recommendation'],
+        'case3_message1'         => sprintf($LANG_VER['case3_message1'], $version),
+        'case3_message2'         => (
+            $releases[$index]['supported']
+                ? sprintf($LANG_VER['case3_supported'], $current)
+                : $LANG_VER['case3_unsupported']
+        ),
+        'case3_message3'         => $LANG_VER['case3_message3'],
+        'recommended_upgrade'    => $LANG_VER['recommended_upgrade'],
+        'download_geeklog_ver'   => sprintf($LANG_VER['download_geeklog_ver'], $current),
+    ]);
+    printFooter($version, 3, $language);
 }
 
 // ************************************
 // case 4 - upgrade - alternative available
 if ($index !== false && !empty($releases[$index]['upgrade'])) {
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
-    echo "</td><td>\n";
-    echo "<h1>Upgrade recommendation</h1>\n";
-    echo "<p>There are two upgrade paths available for the Geeklog version ($version) that you are running.</p><p>\n";
-    echo "The recommended upgrade for your installation is to version $current. \n";
-    echo "This upgrade provides bugfixes and will also provide you with some new features.</p><p>\n";
-    echo "Alternatively you may choose to upgrade to version " . $releases[$index]['upgrade'] . ". \n";
-    echo "This upgrade resolves important security issues, but will not provide you with any new features.</p><p>\n";
-    echo "We recommend that you perform one of the two available upgrades as soon as possible by clicking on the buttons located on the right side of this page</p>\n";
-    echo "</td><td style='width: 237px;'>";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current </a></div><br/>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php?cid=10'>ALTERNATIVE UPGRADE<br/>Download Geeklog " . $releases[$index]['upgrade'] . "</a></div>\n";
-    printFooter($version, 4);
+    echo render('case4', [
+        'warning'                => $LANG_VER['warning'],
+        'upgrade_recommendation' => $LANG_VER['upgrade_recommendation'],
+        'case4_message1'         => sprintf($LANG_VER['case4_message1'], $version),
+        'case4_message2'         => sprintf($LANG_VER['case4_message2'], $current),
+        'case4_message3'         => sprintf($LANG_VER['case4_message3'], $releases[$index]['upgrade']),
+        'case4_message4'         => $LANG_VER['case4_message4'],
+        'recommended_upgrade'    => $LANG_VER['recommended_upgrade'],
+        'download_geeklog_ver'   => sprintf($LANG_VER['download_geeklog_ver'], $current),
+        'alternative_upgrade'    => $LANG_VER['alternative_upgrade'],
+        'download_geeklog_alt'   => sprintf($LANG_VER['download_geeklog_ver'], $releases[$index]['upgrade']),
+    ]);
+    printFooter($version, 4, $language);
 }
 
 // ************************************
 // case 5 - obsolete
 if (version_compare(COM_versionConvert($version), COM_versionConvert($releases[0]['version']), '<')) {
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
-    echo "</td><td>\n";
-    echo "<h1>Upgrade Recommendation</h1>\n";
-    echo "<p>The Geeklog version you are running, $version, is rather old and not supported any more. In your own interest, ";
-    echo "we strongly encourage you to upgrade to the current release, $current.</p><p>";
-    echo "</p><p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
-    echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current</a></div>";
-    printFooter($version, 5);
+    echo render('case5', [
+        'warning'                => $LANG_VER['warning'],
+        'upgrade_recommendation' => $LANG_VER['upgrade_recommendation'],
+        'case5_message1'         => sprintf($LANG_VER['case5_message1'], $version, $current),
+        'case5_message2'         => $LANG_VER['case5_message2'],
+        'recommended_upgrade'    => $LANG_VER['recommended_upgrade'],
+        'download_geeklog_ver'   => sprintf($LANG_VER['download_geeklog_ver'], $current),
+    ]);
+    printFooter($version, 5, $language);
 }
 
 // ************************************
 // case 6 - Development
 if (version_compare(COM_versionConvert($version), COM_versionConvert($current), '>')) {
-    echo "<img src='versionchecker/img/icons/info.png' alt='Info!' width='48' height='48'/>\n";
-    echo "</td><td>\n";
-    echo "<h1>Development version detected</h1>\n";
-    echo "<p>The current version of Geeklog is <strong>$current</strong> but it seems you are running Geeklog $version, which looks like a development version.</p><p>";
-    echo "Please note that it is not recommended to use a development version of Geeklog in a production environment as it may ";
-    echo " be unstable. You may receive the latest stable version of Geeklog by clicking on the button located on the right side of this page.</p><p>";
-    echo "If you are a Geeklog developer, then you probably already knew all this. So, happy coding!</p>\n";
-    echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php?cid=8'>Download Now<br/>Geeklog $current </a></div><br/>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php'>View All<br/>Available Downloads</a></div>";
-    printFooter($version, 6);
+    echo render('case6', [
+        'info'                => $LANG_VER['info'],
+        'case6_title'         => $LANG_VER['case6_title'],
+        'case6_message1'      => $LANG_VER['case6_message1'],
+        'current'             => $current,
+        'case6_message2'      => sprintf($LANG_VER['case6_message2'], $version),
+        'case6_message3'      => $LANG_VER['case6_message3'],
+        'case6_message4'      => $LANG_VER['case6_message4'],
+        'download_now'        => $LANG_VER['download_now'],
+        'geeklog_current'     => sprintf($LANG_VER['geeklog_current'], $current),
+        'view_all'            => $LANG_VER['view_all'],
+        'available_downloads' => $LANG_VER['available_downloads'],
+    ]);
+    printFooter($version, 6, $language);
 }
 
 // ************************************
 // case 7 - Not a release
 // if the script did not exit yet, then it's not an official release, maybe an rc or a beta
-    echo "<img src='versionchecker/img/icons/warning.png' alt='Warning!' width='48' height='48'/>\n";
-    echo "</td><td>\n";
-    echo "<p>The current version of Geeklog is <strong>$current</strong> but it seems you are running Geeklog $version.</p>";
-    echo "<p>You are not running an official release of Geeklog, in fact it appears to be an old \"Release Candidate\" or \"Beta\" version.</p>";
-    echo "<p>We strongly encourage you to upgrade to the current release, $current, as soon as possible.</p>";
-    echo "<p>Click on the button located on the right side of this page to receive the latest version of Geeklog.</p>\n";
-    echo "</td><td style='width: 237px;'>\n";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php?cid=8'>RECOMMENDED UPGRADE<br/>Download Geeklog $current</a></div><br/>";
-    echo "<div class='button'><a href='https://www.geeklog.net/downloads/index.php'>View All<br/>Available Downloads</a></div>";
-    printFooter($version, 7);
-
-?>
+echo render('case7', [
+    'warning'              => $LANG_VER['warning'],
+    'case7_message1'       => $LANG_VER['case7_message1'],
+    'current'              => $current,
+    'case7_message2'       => sprintf($LANG_VER['case7_message2'], $version),
+    'case7_message3'       => $LANG_VER['case7_message3'],
+    'case7_message4'       => sprintf($LANG_VER['case7_message4'], $current),
+    'case7_message5'       => $LANG_VER['case7_message5'],
+    'recommended_upgrade'  => $LANG_VER['recommended_upgrade'],
+    'download_geeklog_ver' => sprintf($LANG_VER['download_geeklog_ver'], $current),
+    'view_all'             => $LANG_VER['view_all'],
+    'available_downloads'  => $LANG_VER['available_downloads'],
+]);
+printFooter($version, 7, $language);

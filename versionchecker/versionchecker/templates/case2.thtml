@@ -1,0 +1,10 @@
+          <img src="versionchecker/img/icons/ok.png" alt="{ok}" width="48" height="48">
+        </td>
+        <td>
+          <h1>{case2_title}</h1>
+          <p>{case2_message1}<a href="http://eight.pairlist.net/mailman/listinfo/geeklog-announce">{case2_message2}</a>{case2_message3}</p>
+        </td>
+        <td style="width: 237px;">
+          <div class="button">
+            <a href="https://www.geeklog.net/downloads/index.php">{view_all}<br>{available_downloads}</a>
+          </div>

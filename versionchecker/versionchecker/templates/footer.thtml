@@ -1,0 +1,9 @@
+        </td>
+      </tr>
+    </table>
+    <img alt="{timeline}" class="timeline" src="versionchecker/versionchecker.php?timeline=1&amp;version={version}&amp;case={case}&amp;language={language}">
+  </div>
+</div>
+<div class="bottom">&nbsp;</div>
+</body>
+</html>
