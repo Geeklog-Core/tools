@@ -48,7 +48,7 @@ $releases = [
     ['version' => '2.1.3',      'date' => '22-Jun-17', 'supported' => false, 'upgrade' => ''],
     ['version' => '2.2.0',      'date' => '26-Jun-18', 'supported' => false, 'upgrade' => ''],
     ['version' => '2.2.1',      'date' => '26-Feb-20', 'supported' => false, 'upgrade' => ''],
-	['version' => '2.2.1sr1',   'date' => '26-Feb-20', 'supported' => true,  'upgrade' => '']
+    ['version' => '2.2.1sr1',   'date' => '16-Apr-20', 'supported' => true,  'upgrade' => '']
 ];
 
 // Current stable version
